@@ -1,13 +1,6 @@
 ﻿using Data;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Bookshelf
@@ -17,6 +10,7 @@ namespace Bookshelf
         public SignIn()
         {
             InitializeComponent();
+            labelError.Hide();
         }
 
         UserBaseRepository _userBase = new UserBaseRepository();
@@ -35,20 +29,31 @@ namespace Bookshelf
 
         private void button1_Click(object sender, EventArgs e)
         {
-            try
+            labelError.Hide();
+            if (textBoxUsername.Text.Length >= 4 && textBoxPassword.Text.Length >= 8)
             {
-                if (_userBase.SignIn(textBox1.Text, textBox2.Text))
+                try
                 {
-                    MessageBox.Show("OK");
+                    if (_userBase.SignIn(textBoxUsername.Text, textBoxPassword.Text))
+                    {
+                        MessageBox.Show("OK");
+                    }
+                }
+                catch (UnauthorizedAccessException error)
+                {
+                    labelError.Show();
+                    labelError.Text = error.Message;
+                }
+                catch (InvalidOperationException error)
+                {
+                    labelError.Show();
+                    labelError.Text = "Username doesn't exist";
                 }
             }
-            catch (UnauthorizedAccessException error)
+            else
             {
-                label4.Text = error.Message;
-            }
-            catch (InvalidOperationException error)
-            {
-                label4.Text = "Username doesn't exist";
+                labelError.Show();
+                labelError.Text = "Incorrect input";
             }
         }
     }
