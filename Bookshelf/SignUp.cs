@@ -17,7 +17,7 @@ namespace Bookshelf
         public SignUp()
         {
             InitializeComponent();
-            label5.Hide();
+            labelError.Hide();
         }
 
         UserBaseRepository _userBase = new UserBaseRepository();
@@ -29,39 +29,39 @@ namespace Bookshelf
 
         private void button1_Click(object sender, EventArgs e)
         {
-            label5.Hide();
-            if (textBox1.Text != "" && textBox2.Text != "" && textBox3.Text != "")
+            labelError.Hide();
+            if (textboxUsername.Text != "" && textBoxPassword1.Text != "" && textBoxPassword2.Text != "")
             {
-                if (textBox1.Text.Length >= 4)
+                if (textboxUsername.Text.Length >= 4)
                 {
-                    if (textBox2.Text.Length >= 8)
+                    if (textBoxPassword1.Text.Length >= 8)
                     {
-                        if (textBox2.Text == textBox3.Text)
+                        if (textBoxPassword1.Text == textBoxPassword2.Text)
                         {
-                            label4.Text = _userBase.SignUp(textBox1.Text, textBox2.Text).ToString();
+                            label4.Text = _userBase.SignUp(textboxUsername.Text, textBoxPassword1.Text).ToString();
                         }
                         else
                         {
-                            label5.Show();
-                            label5.Text = "Those passwords didn't match. Try again.";
+                            labelError.Show();
+                            labelError.Text = "Those passwords didn't match. Try again.";
                         }
                     }
                     else
                     {
-                        label5.Show();
-                        label5.Text = "Use 8 characters or more for your password";
+                        labelError.Show();
+                        labelError.Text = "Use 8 characters or more for your password";
                     }
                 }
                 else
                 {
-                    label5.Show();
-                    label5.Text = "Use 4 characters or more for your username";
+                    labelError.Show();
+                    labelError.Text = "Use 4 characters or more for your username";
                 }
             }
             else
             {
-                label5.Show();
-                label5.Text = "Fill in all the fields";
+                labelError.Show();
+                labelError.Text = "Fill in all the fields";
             }
         }
 

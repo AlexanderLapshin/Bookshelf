@@ -35,9 +35,20 @@ namespace Bookshelf
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if(_userBase.SignIn(textBox1.Text, textBox2.Text))
+            try
             {
-                MessageBox.Show("OK");
+                if (_userBase.SignIn(textBox1.Text, textBox2.Text))
+                {
+                    MessageBox.Show("OK");
+                }
+            }
+            catch (UnauthorizedAccessException error)
+            {
+                label4.Text = error.Message;
+            }
+            catch (InvalidOperationException error)
+            {
+                label4.Text = "Username doesn't exist";
             }
         }
     }

@@ -18,7 +18,8 @@ namespace Data
             /* Fetch the stored value */
             var user = bookshelfDbContext.Users
                             .Where(u => u.Username == username)
-                            .Single();
+                            .First();
+
             if (user != null)
             {
                 /* Extract the bytes */
@@ -35,10 +36,10 @@ namespace Data
                 /* Compare the results */
                 for (int i = 0; i < 20; i++)
                     if (hashBytes[i + 16] != hash[i])
-                        throw new UnauthorizedAccessException();
+                        throw new UnauthorizedAccessException("Invalid username or password");
                 return true;
             }
-            throw new UnauthorizedAccessException();
+            throw new UnauthorizedAccessException("Invalid username or password");
         }
 
         public int SignUp(string username, string password)
