@@ -27,6 +27,11 @@ namespace Bookshelf
             Application.Run(new SignIn());
         }
 
+        private void OpenMainForm()
+        {
+            Application.Run(new MainForm());
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             labelError.Hide();
@@ -38,7 +43,18 @@ namespace Bookshelf
                     {
                         if (textBoxPassword1.Text == textBoxPassword2.Text)
                         {
-                            label4.Text = _userBase.SignUp(textboxUsername.Text, textBoxPassword1.Text).ToString();
+                            try
+                            {
+                                label4.Text = _userBase.SignUp(textboxUsername.Text, textBoxPassword1.Text).ToString();
+                                Close();
+                                Thread td = new Thread(OpenMainForm);
+                                td.Start();
+                            }
+                            catch
+                            {
+                                labelError.Show();
+                                labelError.Text = "Something went wrong. Try again later.";
+                            }
                         }
                         else
                         {

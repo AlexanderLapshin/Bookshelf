@@ -20,6 +20,11 @@ namespace Bookshelf
             Application.Run(new SignUp());
         }
 
+        private void OpenMainForm()
+        {
+            Application.Run(new MainForm());
+        }
+
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Close();
@@ -36,7 +41,9 @@ namespace Bookshelf
                 {
                     if (_userBase.SignIn(textBoxUsername.Text, textBoxPassword.Text))
                     {
-                        MessageBox.Show("OK");
+                        Close();
+                        Thread td = new Thread(OpenMainForm);
+                        td.Start();
                     }
                 }
                 catch (UnauthorizedAccessException error)
