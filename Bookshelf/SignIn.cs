@@ -13,7 +13,9 @@ namespace Bookshelf
             labelError.Hide();
         }
 
-        UserBaseRepository _userBase = new UserBaseRepository();
+        private UserBaseRepository _userBase = new UserBaseRepository();
+        private int userID = 0;
+
 
         private void OpenSignUpForm()
         {
@@ -22,7 +24,7 @@ namespace Bookshelf
 
         private void OpenMainForm()
         {
-            Application.Run(new MainForm());
+            Application.Run(new MainForm(userID));
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -39,7 +41,8 @@ namespace Bookshelf
             {
                 try
                 {
-                    if (_userBase.SignIn(textBoxUsername.Text, textBoxPassword.Text))
+                    userID = _userBase.SignIn(textBoxUsername.Text, textBoxPassword.Text);
+                    if (userID != 0)
                     {
                         Close();
                         Thread td = new Thread(OpenMainForm);

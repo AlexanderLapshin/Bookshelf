@@ -1,19 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Models;
+using System;
 using System.Linq;
 using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
-using Models;
 
 namespace Data
 {
     public class UserBaseRepository
     {
-        private BookshelfDbContext bookshelfDbContext = new BookshelfDbContext();
+        private MoneyFlowDbContext bookshelfDbContext = new MoneyFlowDbContext();
 
 
-        public bool SignIn(string username, string password)
+        public int SignIn(string username, string password)
         {
             /* Fetch the stored value */
             var user = bookshelfDbContext.Users
@@ -35,9 +32,14 @@ namespace Data
 
                 /* Compare the results */
                 for (int i = 0; i < 20; i++)
+                {
                     if (hashBytes[i + 16] != hash[i])
+                    {
                         throw new UnauthorizedAccessException("Invalid username or password");
-                return true;
+                    }
+                }
+
+                return user.Id;
             }
             throw new UnauthorizedAccessException("Invalid username or password");
         }

@@ -4,9 +4,11 @@ namespace Bookshelf
 {
     public partial class MainForm : Form
     {
-        public MainForm()
+        private int userId;
+        public MainForm(int userId)
         {
             InitializeComponent();
+            this.userId = userId;
         }
 
         private void MainForm_Load(object sender, System.EventArgs e)

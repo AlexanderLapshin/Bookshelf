@@ -1,13 +1,6 @@
 ﻿using Data;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Bookshelf
@@ -20,7 +13,8 @@ namespace Bookshelf
             labelError.Hide();
         }
 
-        UserBaseRepository _userBase = new UserBaseRepository();
+        private UserBaseRepository _userBase = new UserBaseRepository();
+        private int userId = 0;
 
         private void OpenSignInForm()
         {
@@ -29,7 +23,7 @@ namespace Bookshelf
 
         private void OpenMainForm()
         {
-            Application.Run(new MainForm());
+            Application.Run(new MainForm(userId));
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -45,7 +39,7 @@ namespace Bookshelf
                         {
                             try
                             {
-                                label4.Text = _userBase.SignUp(textboxUsername.Text, textBoxPassword1.Text).ToString();
+                                userId = _userBase.SignUp(textboxUsername.Text, textBoxPassword1.Text);
                                 Close();
                                 Thread td = new Thread(OpenMainForm);
                                 td.Start();
