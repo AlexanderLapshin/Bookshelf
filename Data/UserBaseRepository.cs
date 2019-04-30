@@ -7,13 +7,13 @@ namespace Data
 {
     public class UserBaseRepository
     {
-        private MoneyFlowDbContext bookshelfDbContext = new MoneyFlowDbContext();
+        private MoneyFlowDbContext moneyFlowDbContext = new MoneyFlowDbContext();
 
 
         public int SignIn(string username, string password)
         {
             /* Fetch the stored value */
-            var user = bookshelfDbContext.Users
+            var user = moneyFlowDbContext.Users
                             .Where(u => u.Username == username)
                             .First();
 
@@ -61,8 +61,8 @@ namespace Data
                 PasswordHash = savedPasswordHash
             };
 
-            bookshelfDbContext.Users.Add(user);
-            bookshelfDbContext.SaveChanges();
+            moneyFlowDbContext.Users.Add(user);
+            moneyFlowDbContext.SaveChanges();
 
             return user.Id;
         }
