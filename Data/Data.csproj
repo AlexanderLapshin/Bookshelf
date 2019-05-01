@@ -48,9 +48,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Migrations\201904302317275_initial.cs" />
+    <Compile Include="Migrations\201904302317275_initial.Designer.cs">
+      <DependentUpon>201904302317275_initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MoneyFlowDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TransactionsRepository.cs" />
+    <Compile Include="TransactionsBaseRepository.cs" />
     <Compile Include="UserBaseRepository.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -64,6 +69,11 @@
       <Project>{B33DDA73-B511-49EC-9247-99AE2C78A48A}</Project>
       <Name>Models</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201904302317275_initial.resx">
+      <DependentUpon>201904302317275_initial.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

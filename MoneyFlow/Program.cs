@@ -13,7 +13,8 @@ namespace Bookshelf
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm(1));
+            //Application.Run(new MainForm(1, "TEST"));
+            Application.Run(new SignIn());
         }
     }
 }

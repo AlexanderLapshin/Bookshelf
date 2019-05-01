@@ -156,7 +156,7 @@
             this.MinimumSize = new System.Drawing.Size(615, 405);
             this.Name = "SignIn";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Login Bookshelf";
+            this.Text = "Login MoneyFlow";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -174,4 +174,3 @@
         private System.Windows.Forms.Label labelError;
     }
 }
-

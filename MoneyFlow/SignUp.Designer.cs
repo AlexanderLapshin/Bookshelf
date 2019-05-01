@@ -170,7 +170,7 @@
             this.MinimumSize = new System.Drawing.Size(615, 405);
             this.Name = "SignUp";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Sign Up Bookshelf";
+            this.Text = "Sign Up MoneyFlow";
             this.ResumeLayout(false);
             this.PerformLayout();
 

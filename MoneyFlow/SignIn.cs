@@ -14,7 +14,8 @@ namespace Bookshelf
         }
 
         private UserBaseRepository _userBase = new UserBaseRepository();
-        private int userID = 0;
+        private int userID;
+        private string username;
 
 
         private void OpenSignUpForm()
@@ -24,7 +25,7 @@ namespace Bookshelf
 
         private void OpenMainForm()
         {
-            Application.Run(new MainForm(userID));
+            Application.Run(new MainForm(userID, username));
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -42,6 +43,7 @@ namespace Bookshelf
                 try
                 {
                     userID = _userBase.SignIn(textBoxUsername.Text, textBoxPassword.Text);
+                    username = textBoxUsername.Text;
                     if (userID != 0)
                     {
                         Close();

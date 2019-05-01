@@ -58,13 +58,29 @@ namespace Data
             var user = new User()
             {
                 Username = username,
-                PasswordHash = savedPasswordHash
+                PasswordHash = savedPasswordHash,
+                Balance = 0
             };
 
             moneyFlowDbContext.Users.Add(user);
             moneyFlowDbContext.SaveChanges();
 
             return user.Id;
+        }
+
+        public double GetBalance(int userId)
+        {
+            double balance = moneyFlowDbContext.Users.Single(u => u.Id == userId).Balance;
+
+            return balance;
+        }
+
+        public void SetBalance(int userId, double balance)
+        {
+            User user = moneyFlowDbContext.Users.Single(u => u.Id == userId);
+            user.Balance = balance;
+
+            moneyFlowDbContext.SaveChanges();
         }
     }
 }
