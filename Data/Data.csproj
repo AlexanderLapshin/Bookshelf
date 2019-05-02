@@ -52,6 +52,14 @@
     <Compile Include="Migrations\201904302317275_initial.Designer.cs">
       <DependentUpon>201904302317275_initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201905021946285_added currentUserBalance property.cs" />
+    <Compile Include="Migrations\201905021946285_added currentUserBalance property.Designer.cs">
+      <DependentUpon>201905021946285_added currentUserBalance property.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905022012121_added service property.cs" />
+    <Compile Include="Migrations\201905022012121_added service property.Designer.cs">
+      <DependentUpon>201905022012121_added service property.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MoneyFlowDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -73,6 +81,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201904302317275_initial.resx">
       <DependentUpon>201904302317275_initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905021946285_added currentUserBalance property.resx">
+      <DependentUpon>201905021946285_added currentUserBalance property.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905022012121_added service property.resx">
+      <DependentUpon>201905022012121_added service property.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

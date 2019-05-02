@@ -35,7 +35,7 @@ namespace Data
             return transactions;
         }
 
-        public Transaction AddTransaction(double sum, int userId, string type, string note)
+        public Transaction AddTransaction(double sum, int userId, string type, string note, double curBalance)
         {
             ExpenseType expenseType;
             if (transactionsTypes.TryGetValue(type, out expenseType))
@@ -46,6 +46,7 @@ namespace Data
                     UserID = userId,
                     Type = expenseType,
                     Date = DateTime.Now,
+                    CurrentBalance = curBalance,
                     Note = note
                 };
 

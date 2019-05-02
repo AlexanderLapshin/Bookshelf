@@ -65,6 +65,20 @@ namespace Data
             moneyFlowDbContext.Users.Add(user);
             moneyFlowDbContext.SaveChanges();
 
+            var initialTransaction = new Transaction()
+            {
+                Date = DateTime.Now,
+                UserID = user.Id,
+                Sum = 0,
+                Service = true,
+                Note = "Initial transaction; Open account",
+                CurrentBalance = 0,
+                Type = ExpenseType.Other
+            };
+
+            moneyFlowDbContext.Transactions.Add(initialTransaction);
+            moneyFlowDbContext.SaveChanges();
+
             return user.Id;
         }
 

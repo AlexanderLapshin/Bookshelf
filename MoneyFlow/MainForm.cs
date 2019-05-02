@@ -62,24 +62,35 @@ namespace Bookshelf
 
             foreach (Transaction transaction in transactions)
             {
-                dataGridView1.Rows.Add(transaction.Sum, transaction.Type, transaction.Date, transaction.Note);
+                if (!transaction.Service)
+                {
+                    dataGridView1.Rows.Add(transaction.Sum, transaction.Type, transaction.Date, transaction.Note);
+                }
+
+                chart1.Series[0].Points.AddXY(transaction.Date, transaction.CurrentBalance);
             }
+
 
         }
 
         private void addTransactionButton_Click(object sender, System.EventArgs e)
         {
-            double sum = (double)numericUpDownValue.Value;
-            if (sum != 0)
+            double transactionSum = (double)numericUpDownValue.Value;
+            if (transactionSum != 0)
             {
                 if (comboBoxType.SelectedItem != null)
                 {
-                    string type = comboBoxType.SelectedItem.ToString();
+                    string transactionType = comboBoxType.SelectedItem.ToString();
                     string note = (textBoxNote.Text == "Notes") ? " " : textBoxNote.Text;
-                    Transaction transaction = _transactionsBase.AddTransaction(sum, userId, type, note);
-                    dataGridView1.Rows.Add(transaction.Sum, transaction.Type, transaction.Date, transaction.Note);
 
-                    userBalance += sum;
+                    userBalance += transactionSum;
+
+                    Transaction transaction = _transactionsBase.AddTransaction(transactionSum, userId, transactionType, note, userBalance);
+                    transactions.Add(transaction);
+
+                    dataGridView1.Rows.Add(transaction.Sum, transaction.Type, transaction.Date, transaction.Note);
+                    chart1.Series[0].Points.AddXY(transaction.Date, transaction.CurrentBalance);
+
                     _userBase.SetBalance(userId, userBalance);
                     labelBalance.Text = userBalance.ToString();
                     labelBalance.ForeColor = (userBalance >= 0) ? Color.Green : Color.Red;
