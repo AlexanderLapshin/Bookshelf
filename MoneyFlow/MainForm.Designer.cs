@@ -31,6 +31,9 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -44,11 +47,11 @@
             this.labelBalance = new System.Windows.Forms.Label();
             this.labelBalance2 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.chartExpenses = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.comboBoxPeriod = new System.Windows.Forms.ComboBox();
+            this.comboBoxGraphicType = new System.Windows.Forms.ComboBox();
+            this.chartBalance = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -60,8 +63,9 @@
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownValue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartExpenses)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartBalance)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -101,8 +105,9 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.chartExpenses);
             this.splitContainer1.Panel2.Controls.Add(this.groupBox1);
-            this.splitContainer1.Panel2.Controls.Add(this.chart1);
+            this.splitContainer1.Panel2.Controls.Add(this.chartBalance);
             this.splitContainer1.Size = new System.Drawing.Size(947, 537);
             this.splitContainer1.SplitterDistance = 402;
             this.splitContainer1.TabIndex = 0;
@@ -240,72 +245,84 @@
             this.dataGridView1.Size = new System.Drawing.Size(402, 290);
             this.dataGridView1.TabIndex = 0;
             // 
+            // chartExpenses
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.chartExpenses.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chartExpenses.Legends.Add(legend1);
+            this.chartExpenses.Location = new System.Drawing.Point(-1, -3);
+            this.chartExpenses.Name = "chartExpenses";
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chartExpenses.Series.Add(series1);
+            this.chartExpenses.Size = new System.Drawing.Size(545, 463);
+            this.chartExpenses.TabIndex = 2;
+            this.chartExpenses.Text = "chart2";
+            // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.radioButton3);
-            this.groupBox1.Controls.Add(this.radioButton2);
-            this.groupBox1.Controls.Add(this.radioButton1);
+            this.groupBox1.Controls.Add(this.comboBoxPeriod);
+            this.groupBox1.Controls.Add(this.comboBoxGraphicType);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.groupBox1.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.groupBox1.Location = new System.Drawing.Point(0, 472);
+            this.groupBox1.Location = new System.Drawing.Point(0, 453);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(541, 65);
+            this.groupBox1.Size = new System.Drawing.Size(541, 84);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Graphic";
             // 
-            // radioButton3
+            // comboBoxPeriod
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(397, 32);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(113, 20);
-            this.radioButton3.TabIndex = 2;
-            this.radioButton3.Text = "radioButton3";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.comboBoxPeriod.FormattingEnabled = true;
+            this.comboBoxPeriod.Items.AddRange(new object[] {
+            "Today",
+            "This week",
+            "This month",
+            "This year",
+            "All time"});
+            this.comboBoxPeriod.Location = new System.Drawing.Point(330, 32);
+            this.comboBoxPeriod.Name = "comboBoxPeriod";
+            this.comboBoxPeriod.Size = new System.Drawing.Size(121, 24);
+            this.comboBoxPeriod.TabIndex = 1;
+            this.comboBoxPeriod.SelectedIndexChanged += new System.EventHandler(this.comboBoxPeriod_SelectedIndexChanged);
             // 
-            // radioButton2
+            // comboBoxGraphicType
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(224, 32);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(113, 20);
-            this.radioButton2.TabIndex = 1;
-            this.radioButton2.Text = "radioButton2";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.comboBoxGraphicType.FormattingEnabled = true;
+            this.comboBoxGraphicType.Items.AddRange(new object[] {
+            "Balance",
+            "Income/Expense",
+            "Expenses"});
+            this.comboBoxGraphicType.Location = new System.Drawing.Point(63, 32);
+            this.comboBoxGraphicType.Name = "comboBoxGraphicType";
+            this.comboBoxGraphicType.Size = new System.Drawing.Size(121, 24);
+            this.comboBoxGraphicType.TabIndex = 0;
+            this.comboBoxGraphicType.SelectedIndexChanged += new System.EventHandler(this.comboBoxGraphicType_SelectedIndexChanged);
             // 
-            // radioButton1
+            // chartBalance
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Checked = true;
-            this.radioButton1.Location = new System.Drawing.Point(55, 32);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(113, 20);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "radioButton1";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // chart1
-            // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            this.chart1.Dock = System.Windows.Forms.DockStyle.Top;
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(0, 0);
-            this.chart1.Name = "chart1";
-            series1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            series1.BorderWidth = 3;
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(541, 475);
-            this.chart1.TabIndex = 0;
-            this.chart1.Text = "chart1";
+            chartArea2.Name = "ChartArea1";
+            this.chartBalance.ChartAreas.Add(chartArea2);
+            this.chartBalance.Dock = System.Windows.Forms.DockStyle.Top;
+            legend2.Name = "Legend1";
+            this.chartBalance.Legends.Add(legend2);
+            this.chartBalance.Location = new System.Drawing.Point(0, 0);
+            this.chartBalance.Name = "chartBalance";
+            series2.BorderColor = System.Drawing.Color.RoyalBlue;
+            series2.BorderWidth = 3;
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+            series2.Legend = "Legend1";
+            series2.Name = "Balance";
+            this.chartBalance.Series.Add(series2);
+            this.chartBalance.Size = new System.Drawing.Size(541, 460);
+            this.chartBalance.TabIndex = 0;
+            this.chartBalance.Text = "chart1";
             // 
             // tabPage2
             // 
@@ -341,9 +358,9 @@
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownValue)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartExpenses)).EndInit();
             this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartBalance)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -355,10 +372,7 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartBalance;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.NumericUpDown numericUpDownValue;
         private System.Windows.Forms.DataGridView dataGridView1;
@@ -368,5 +382,8 @@
         private System.Windows.Forms.Label labelBalance2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button addTransactionButton;
+        private System.Windows.Forms.ComboBox comboBoxPeriod;
+        private System.Windows.Forms.ComboBox comboBoxGraphicType;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartExpenses;
     }
 }

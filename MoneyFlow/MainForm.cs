@@ -1,5 +1,6 @@
 ﻿using Data;
 using Models;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
@@ -13,7 +14,8 @@ namespace Bookshelf
         private double userBalance;
         private UserBaseRepository _userBase = new UserBaseRepository();
         private TransactionsBaseRepository _transactionsBase = new TransactionsBaseRepository();
-        private List<Transaction> transactions;
+        private List<Transaction> allUserTransactions;
+        private List<Transaction> periodTransactions;
         private readonly string[] ExpenseTypesArray = new string[10] { "Goods", "Restaurant", "Leisure", "Transport", "Health", "Gifts", "Family", "Clothes", "Food", "Other" };
         private readonly string[] IncomeTypesArray = new string[2] { "Salary", "Other" };
 
@@ -24,7 +26,7 @@ namespace Bookshelf
             this.username = username;
             userBalance = _userBase.GetBalance(userId);
 
-            transactions = _transactionsBase.GetUserTransactions(userId);
+            allUserTransactions = _transactionsBase.GetAllUserTransactions(userId);
         }
 
         private void MainForm_Load(object sender, System.EventArgs e)
@@ -60,15 +62,21 @@ namespace Bookshelf
             labelBalance.ForeColor = textColor;
             labelBalance2.ForeColor = textColor;
 
-            foreach (Transaction transaction in transactions)
+
+            foreach (Transaction transaction in allUserTransactions)
             {
                 if (!transaction.Service)
                 {
                     dataGridView1.Rows.Add(transaction.Sum, transaction.Type, transaction.Date, transaction.Note);
                 }
 
-                chart1.Series[0].Points.AddXY(transaction.Date, transaction.CurrentBalance);
+                chartBalance.Series[0].Points.AddY(transaction.CurrentBalance);
             }
+
+            // Graphic settings
+            comboBoxGraphicType.SelectedIndex = 0;
+            comboBoxPeriod.SelectedIndex = comboBoxPeriod.Items.Count - 1;
+
 
 
         }
@@ -86,10 +94,10 @@ namespace Bookshelf
                     userBalance += transactionSum;
 
                     Transaction transaction = _transactionsBase.AddTransaction(transactionSum, userId, transactionType, note, userBalance);
-                    transactions.Add(transaction);
+                    allUserTransactions.Add(transaction);
 
                     dataGridView1.Rows.Add(transaction.Sum, transaction.Type, transaction.Date, transaction.Note);
-                    chart1.Series[0].Points.AddXY(transaction.Date, transaction.CurrentBalance);
+                    chartBalance.Series[0].Points.AddY(transaction.CurrentBalance);
 
                     _userBase.SetBalance(userId, userBalance);
                     labelBalance.Text = userBalance.ToString();
@@ -127,6 +135,102 @@ namespace Bookshelf
                     comboBoxType.Items.AddRange(ExpenseTypesArray);
                 }
             }
+        }
+
+        private void comboBoxPeriod_SelectedIndexChanged(object sender, System.EventArgs e)
+        {
+            switch
+
+            // Clear graphics
+            chartBalance.Series[0].Points.Clear();
+            chartExpenses.Series[0].Points.Clear();
+
+            if (comboBoxGraphicType.SelectedIndex == 0)
+            {
+                DrawBalanceChart(periodTransactions);
+            }
+            else
+            {
+                DrawExpensesChart(periodTransactions);
+            }
+        }
+
+        private void comboBoxGraphicType_SelectedIndexChanged(object sender, System.EventArgs e)
+        {
+            if (comboBoxGraphicType.SelectedIndex == 0)
+            {
+                chartBalance.Show();
+                chartExpenses.Hide();
+                DrawBalanceChart(periodTransactions);
+            }
+            else
+            {
+                chartBalance.Hide();
+                chartExpenses.Show();
+                DrawExpensesChart(periodTransactions);
+            }
+        }
+
+
+        private void DrawBalanceChart(List<Transaction> transactions)
+        {
+            foreach (Transaction transaction in transactions)
+            {
+                chartBalance.Series[0].Points.AddY(transaction.CurrentBalance);
+            }
+        }
+
+        private void DrawExpensesChart(List<Transaction> transactions)
+        {
+            double clothes = 0, family = 0, food = 0, gifts = 0, goods = 0, health = 0, leisure = 0, restaurant = 0, transport = 0, other = 0;
+
+            foreach (Transaction transaction in transactions)
+            {
+                switch (transaction.Type)
+                {
+                    case ExpenseType.Clothes:
+                        clothes += transaction.Sum;
+                        break;
+                    case ExpenseType.Family:
+                        family += transaction.Sum;
+                        break;
+                    case ExpenseType.Food:
+                        food += transaction.Sum;
+                        break;
+                    case ExpenseType.Gifts:
+                        gifts += transaction.Sum;
+                        break;
+                    case ExpenseType.Goods:
+                        goods += transaction.Sum;
+                        break;
+                    case ExpenseType.Health:
+                        health += transaction.Sum;
+                        break;
+                    case ExpenseType.Leisure:
+                        leisure += transaction.Sum;
+                        break;
+                    case ExpenseType.Restaurant:
+                        restaurant += transaction.Sum;
+                        break;
+                    case ExpenseType.Transport:
+                        transport += transaction.Sum;
+                        break;
+                    case ExpenseType.Other:
+                        other += transaction.Sum;
+                        break;
+                }
+            }
+
+            chartExpenses.Series[0].Points.AddXY("Clothes", Math.Abs(clothes));
+            chartExpenses.Series[0].Points.AddXY("Family", Math.Abs(family));
+            chartExpenses.Series[0].Points.AddXY("Food", Math.Abs(food));
+            chartExpenses.Series[0].Points.AddXY("Gifts", Math.Abs(gifts));
+            chartExpenses.Series[0].Points.AddXY("Goods", Math.Abs(goods));
+            chartExpenses.Series[0].Points.AddXY("Health", Math.Abs(health));
+            chartExpenses.Series[0].Points.AddXY("Leisure", Math.Abs(leisure));
+            chartExpenses.Series[0].Points.AddXY("Restaurant", Math.Abs(restaurant));
+            chartExpenses.Series[0].Points.AddXY("Transport", Math.Abs(transport));
+            chartExpenses.Series[0].Points.AddXY("Other", Math.Abs(other));
         }
     }
 }

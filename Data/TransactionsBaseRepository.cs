@@ -26,11 +26,46 @@ namespace Data
 
 
 
-        public List<Transaction> GetUserTransactions(int userID)
+        public List<Transaction> GetAllUserTransactions(int userID)
         {
             List<Transaction> transactions = moneyFlowDbContext.Transactions
                                                  .Where(t => t.UserID == userID)
                                                  .ToList();
+
+            return transactions;
+        }
+
+        public List<Transaction> GetUserWeekTransactions()
+        {
+            DateTime week = DateTime.Now.Date.AddDays(-7);
+
+            List<Transaction> transactions = moneyFlowDbContext.Transactions
+                                                .Where(t => t.Date > week)
+                                                .ToList();
+
+            return transactions;
+        }
+
+        public List<Transaction> GetUserMonthTransactions()
+        {
+            DateTime date = DateTime.Now.Date;
+            DateTime month = date.AddDays(-date.Day + 1);
+
+            List<Transaction> transactions = moneyFlowDbContext.Transactions
+                                                .Where(t => t.Date > month)
+                                                .ToList();
+
+            return transactions;
+        }
+
+        public List<Transaction> GetUserYearTransactions()
+        {
+            DateTime date = DateTime.Now.Date;
+            DateTime year = date.AddDays(-date.Day + 1).AddMonths(-date.Month + 1);
+
+            List<Transaction> transactions = moneyFlowDbContext.Transactions
+                                                .Where(t => t.Date > year)
+                                                .ToList();
 
             return transactions;
         }
