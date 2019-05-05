@@ -35,35 +35,50 @@ namespace Data
             return transactions;
         }
 
-        public List<Transaction> GetUserWeekTransactions()
+        public List<Transaction> GetTodayUserTransactions(int userID)
+        {
+            DateTime today = DateTime.Now.Date;
+
+            List<Transaction> transactions = moneyFlowDbContext.Transactions
+                                                .Where(t => t.UserID == userID)
+                                                .Where(t => t.Date >= today)
+                                                .ToList();
+
+            return transactions;
+        }
+
+        public List<Transaction> GetUserWeekTransactions(int userID)
         {
             DateTime week = DateTime.Now.Date.AddDays(-7);
 
             List<Transaction> transactions = moneyFlowDbContext.Transactions
+                                                .Where(t => t.UserID == userID)
                                                 .Where(t => t.Date > week)
                                                 .ToList();
 
             return transactions;
         }
 
-        public List<Transaction> GetUserMonthTransactions()
+        public List<Transaction> GetUserMonthTransactions(int userID)
         {
             DateTime date = DateTime.Now.Date;
             DateTime month = date.AddDays(-date.Day + 1);
 
             List<Transaction> transactions = moneyFlowDbContext.Transactions
+                                                .Where(t => t.UserID == userID)
                                                 .Where(t => t.Date > month)
                                                 .ToList();
 
             return transactions;
         }
 
-        public List<Transaction> GetUserYearTransactions()
+        public List<Transaction> GetUserYearTransactions(int userID)
         {
             DateTime date = DateTime.Now.Date;
             DateTime year = date.AddDays(-date.Day + 1).AddMonths(-date.Month + 1);
 
             List<Transaction> transactions = moneyFlowDbContext.Transactions
+                                                .Where(t => t.UserID == userID)
                                                 .Where(t => t.Date > year)
                                                 .ToList();
 

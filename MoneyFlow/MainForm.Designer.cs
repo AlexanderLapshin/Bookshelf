@@ -249,16 +249,18 @@
             // 
             chartArea1.Name = "ChartArea1";
             this.chartExpenses.ChartAreas.Add(chartArea1);
+            legend1.Enabled = false;
             legend1.Name = "Legend1";
             this.chartExpenses.Legends.Add(legend1);
             this.chartExpenses.Location = new System.Drawing.Point(-1, -3);
             this.chartExpenses.Name = "chartExpenses";
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.chartExpenses.Series.Add(series1);
-            this.chartExpenses.Size = new System.Drawing.Size(545, 463);
+            this.chartExpenses.Size = new System.Drawing.Size(545, 450);
             this.chartExpenses.TabIndex = 2;
             this.chartExpenses.Text = "chart2";
             // 
