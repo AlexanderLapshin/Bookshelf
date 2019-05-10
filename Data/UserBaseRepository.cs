@@ -14,10 +14,10 @@ namespace Data
         {
             /* Fetch the stored value */
             var user = moneyFlowDbContext.Users
-                            .Where(u => u.Username == username)
+                            .Where(u => u.Username.Equals(username))
                             .First();
 
-            if (user != null)
+            if (user != null && user.Username == username)
             {
                 /* Extract the bytes */
                 byte[] hashBytes = Convert.FromBase64String(user.PasswordHash);
@@ -44,6 +44,9 @@ namespace Data
             throw new UnauthorizedAccessException("Invalid username or password");
         }
 
+        //!!
+        // MAKE VERIFICATION IF USER WItH THIS USERNAME ALREADY EXIST!!!
+        //!!
         public int SignUp(string username, string password)
         {
             byte[] salt;

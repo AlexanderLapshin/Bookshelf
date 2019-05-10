@@ -1,5 +1,6 @@
 ﻿using Data;
 using System;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -16,6 +17,9 @@ namespace Bookshelf
         private UserBaseRepository _userBase = new UserBaseRepository();
         private int userId;
         private string username;
+        string usernameRegexPattern = @"^[a-zA-Z][a-zA-Z0-9-_\.]{4,20}$";
+        string passwordRegexPattern = @"^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,64})";
+
 
         private void OpenSignInForm()
         {
@@ -32,9 +36,10 @@ namespace Bookshelf
             labelError.Hide();
             if (textboxUsername.Text != "" && textBoxPassword1.Text != "" && textBoxPassword2.Text != "")
             {
-                if (textboxUsername.Text.Length >= 4)
+
+                if (Regex.IsMatch(textboxUsername.Text, usernameRegexPattern))
                 {
-                    if (textBoxPassword1.Text.Length >= 8)
+                    if (Regex.IsMatch(textBoxPassword1.Text, passwordRegexPattern))
                     {
                         if (textBoxPassword1.Text == textBoxPassword2.Text)
                         {
@@ -61,7 +66,7 @@ namespace Bookshelf
                     else
                     {
                         labelError.Show();
-                        labelError.Text = "Use 8 characters or more for your password";
+                        labelError.Text = "Use 6 characters or more for your password";
                     }
                 }
                 else

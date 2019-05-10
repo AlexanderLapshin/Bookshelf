@@ -179,17 +179,23 @@ namespace Bookshelf
 
         private void comboBoxGraphicType_SelectedIndexChanged(object sender, System.EventArgs e)
         {
-            if (comboBoxGraphicType.SelectedIndex == 0)
+            switch (comboBoxGraphicType.SelectedIndex)
             {
-                chartBalance.Show();
-                chartExpenses.Hide();
-                DrawBalanceChart(periodTransactions);
-            }
-            else
-            {
-                chartBalance.Hide();
-                chartExpenses.Show();
-                DrawExpensesChart(periodTransactions);
+                case 0:
+                    chartBalance.Show();
+                    chartExpenses.Hide();
+                    DrawBalanceChart(periodTransactions);
+                    break;
+                case 1:
+                    chartBalance.Hide();
+                    chartExpenses.Show();
+                    DrawIncomeExpnsesChart(periodTransactions);
+                    break;
+                case 2:
+                    chartBalance.Hide();
+                    chartExpenses.Show();
+                    DrawExpensesChart(periodTransactions);
+                    break;
             }
         }
 
@@ -202,6 +208,27 @@ namespace Bookshelf
             {
                 chartBalance.Series[0].Points.AddY(transaction.CurrentBalance);
             }
+        }
+
+        private void DrawIncomeExpnsesChart(List<Transaction> transactions)
+        {
+            double income = 0, expenses = 0;
+
+            chartBalance.Series[0].Points.Clear();
+
+            foreach (Transaction transaction in transactions)
+            {
+                if (transaction.Sum > 0)
+                {
+                    income += transaction.Sum;
+                }
+                else
+                {
+                    expenses += transaction.Sum;
+                }
+            }
+            chartExpenses.Series[0].Points.AddXY("Income", income);
+            chartExpenses.Series[0].Points.AddXY("Expenses", Math.Abs(expenses));
         }
 
         private void DrawExpensesChart(List<Transaction> transactions)
@@ -257,46 +284,45 @@ namespace Bookshelf
 
             chartExpenses.Titles.Clear();
             chartExpenses.Titles.Add("All Expenses: " + Math.Abs(allExpenses));
-            chartExpenses.Titles[0].Font = Font
 
             if (clothes != 0)
             {
-                chartExpenses.Series[0].Points.AddXY("Clothes", Math.Abs(clothes));
+                chartExpenses.Series[0].Points.AddXY("Clothes\n" + clothes.ToString(), Math.Abs(clothes));
             }
 
             if (family != 0)
             {
-                chartExpenses.Series[0].Points.AddXY("Family", Math.Abs(family));
+                chartExpenses.Series[0].Points.AddXY("Family\n" + family.ToString(), Math.Abs(family));
             }
 
             if (food != 0)
             {
-                chartExpenses.Series[0].Points.AddXY("Food", Math.Abs(food));
+                chartExpenses.Series[0].Points.AddXY("Food\n" + food.ToString(), Math.Abs(food));
             }
 
             if (gifts != 0)
             {
-                chartExpenses.Series[0].Points.AddXY("Gifts", Math.Abs(gifts));
+                chartExpenses.Series[0].Points.AddXY("Gifts\n" + gifts.ToString(), Math.Abs(gifts));
             }
 
             if (goods != 0)
             {
-                chartExpenses.Series[0].Points.AddXY("Goods", Math.Abs(goods));
+                chartExpenses.Series[0].Points.AddXY("Goods\n" + goods.ToString(), Math.Abs(goods));
             }
 
             if (health != 0)
             {
-                chartExpenses.Series[0].Points.AddXY("Health", Math.Abs(health));
+                chartExpenses.Series[0].Points.AddXY("Health\n" + health.ToString(), Math.Abs(health));
             }
 
             if (leisure != 0)
             {
-                chartExpenses.Series[0].Points.AddXY("Leisure", Math.Abs(leisure));
+                chartExpenses.Series[0].Points.AddXY("Leisure\n" + leisure.ToString(), Math.Abs(leisure));
             }
 
             if (restaurant != 0)
             {
-                chartExpenses.Series[0].Points.AddXY("Restaurant", Math.Abs(restaurant));
+                chartExpenses.Series[0].Points.AddXY("Restaurant\n" + restaurant.ToString(), Math.Abs(restaurant));
             }
 
             if (transport != 0)
@@ -307,7 +333,7 @@ namespace Bookshelf
 
             if (other != 0)
             {
-                chartExpenses.Series[0].Points.AddXY("Other", Math.Abs(other));
+                chartExpenses.Series[0].Points.AddXY("Other\n" + other.ToString(), Math.Abs(other));
             }
         }
     }
