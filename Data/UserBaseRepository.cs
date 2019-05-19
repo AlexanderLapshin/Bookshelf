@@ -1,4 +1,6 @@
-﻿using Models;
+﻿using Bookshelf.Exceptions;
+using Data.Exceptions;
+using Models;
 using System;
 using System.Linq;
 using System.Security.Cryptography;
@@ -13,9 +15,9 @@ namespace Data
         public int SignIn(string username, string password)
         {
             /* Fetch the stored value */
-            var user = moneyFlowDbContext.Users
+            User user = moneyFlowDbContext.Users
                             .Where(u => u.Username.Equals(username))
-                            .First();
+                            .FirstOrDefault();
 
             if (user != null && user.Username == username)
             {
@@ -35,13 +37,13 @@ namespace Data
                 {
                     if (hashBytes[i + 16] != hash[i])
                     {
-                        throw new UnauthorizedAccessException("Invalid username or password");
+                        throw new InvalidPasswordException("Invalid username or password");
                     }
                 }
 
                 return user.Id;
             }
-            throw new UnauthorizedAccessException("Invalid username or password");
+            throw new InvalidUsernameException("Invalid username or password");
         }
 
         //!!
@@ -49,40 +51,47 @@ namespace Data
         //!!
         public int SignUp(string username, string password)
         {
-            byte[] salt;
-            new RNGCryptoServiceProvider().GetBytes(salt = new byte[16]);
-            var pbkdf2 = new Rfc2898DeriveBytes(password, salt, 10000);
-            byte[] hash = pbkdf2.GetBytes(20);
-            byte[] hashBytes = new byte[36];
-            Array.Copy(salt, 0, hashBytes, 0, 16);
-            Array.Copy(hash, 0, hashBytes, 16, 20);
-            string savedPasswordHash = Convert.ToBase64String(hashBytes);
+            User user = moneyFlowDbContext.Users
+                            .Where(u => u.Username == username)
+                            .FirstOrDefault();
 
-            var user = new User()
+            if (user == null)
             {
-                Username = username,
-                PasswordHash = savedPasswordHash,
-                Balance = 0
-            };
+                byte[] salt;
+                new RNGCryptoServiceProvider().GetBytes(salt = new byte[16]);
+                var pbkdf2 = new Rfc2898DeriveBytes(password, salt, 10000);
+                byte[] hash = pbkdf2.GetBytes(20);
+                byte[] hashBytes = new byte[36];
+                Array.Copy(salt, 0, hashBytes, 0, 16);
+                Array.Copy(hash, 0, hashBytes, 16, 20);
+                string savedPasswordHash = Convert.ToBase64String(hashBytes);
 
-            moneyFlowDbContext.Users.Add(user);
-            moneyFlowDbContext.SaveChanges();
+                User newUser = new User()
+                {
+                    Username = username,
+                    PasswordHash = savedPasswordHash,
+                    Balance = 0
+                };
 
-            var initialTransaction = new Transaction()
-            {
-                Date = DateTime.Now,
-                UserID = user.Id,
-                Sum = 0,
-                Service = true,
-                Note = "Initial transaction; Open account",
-                CurrentBalance = 0,
-                Type = ExpenseType.Other
-            };
+                moneyFlowDbContext.Users.Add(newUser);
+                moneyFlowDbContext.SaveChanges();
 
-            moneyFlowDbContext.Transactions.Add(initialTransaction);
-            moneyFlowDbContext.SaveChanges();
+                Transaction initialTransaction = new Transaction()
+                {
+                    Date = DateTime.Now,
+                    UserID = newUser.Id,
+                    Sum = 0,
+                    Note = "You have created the account",
+                    CurrentBalance = 0,
+                    Type = ExpenseType.Other
+                };
 
-            return user.Id;
+                moneyFlowDbContext.Transactions.Add(initialTransaction);
+                moneyFlowDbContext.SaveChanges();
+
+                return user.Id;
+            }
+            throw new InvalidUsernameException("This username already exists");
         }
 
         public double GetBalance(int userId)

@@ -48,6 +48,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Exceptions\InvalidPasswordException.cs" />
+    <Compile Include="Exceptions\InvalidUsernameException.cs" />
     <Compile Include="Migrations\201904302317275_initial.cs" />
     <Compile Include="Migrations\201904302317275_initial.Designer.cs">
       <DependentUpon>201904302317275_initial.cs</DependentUpon>
@@ -59,6 +61,10 @@
     <Compile Include="Migrations\201905022012121_added service property.cs" />
     <Compile Include="Migrations\201905022012121_added service property.Designer.cs">
       <DependentUpon>201905022012121_added service property.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905191801567_deleted service field.cs" />
+    <Compile Include="Migrations\201905191801567_deleted service field.Designer.cs">
+      <DependentUpon>201905191801567_deleted service field.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MoneyFlowDbContext.cs" />
@@ -87,6 +93,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201905022012121_added service property.resx">
       <DependentUpon>201905022012121_added service property.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905191801567_deleted service field.resx">
+      <DependentUpon>201905191801567_deleted service field.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

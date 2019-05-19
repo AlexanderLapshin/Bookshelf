@@ -1,4 +1,6 @@
-﻿using Data;
+﻿using Bookshelf.Exceptions;
+using Data;
+using Data.Exceptions;
 using System;
 using System.Threading;
 using System.Windows.Forms;
@@ -28,14 +30,14 @@ namespace Bookshelf
             Application.Run(new MainForm(userID, username));
         }
 
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void linkLabelSignUp_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Close();
             Thread td = new Thread(OpenSignUpForm);
             td.Start();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonSignIn_Click(object sender, EventArgs e)
         {
             labelError.Hide();
             if (textBoxUsername.Text.Length >= 4 && textBoxPassword.Text.Length >= 8)
@@ -51,15 +53,15 @@ namespace Bookshelf
                         td.Start();
                     }
                 }
-                catch (UnauthorizedAccessException error)
+                catch (InvalidUsernameException error)
                 {
                     labelError.Show();
                     labelError.Text = error.Message;
                 }
-                catch (InvalidOperationException error)
+                catch (InvalidPasswordException error)
                 {
                     labelError.Show();
-                    labelError.Text = "Username doesn't exist";
+                    labelError.Text = error.Message;
                 }
             }
             else

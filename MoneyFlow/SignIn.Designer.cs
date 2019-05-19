@@ -34,7 +34,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.textBoxUsername = new System.Windows.Forms.TextBox();
             this.textBoxPassword = new System.Windows.Forms.TextBox();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.linkLabelSignUp = new System.Windows.Forms.LinkLabel();
             this.buttonSignIn = new System.Windows.Forms.Button();
             this.labelError = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -94,19 +94,19 @@
             this.textBoxPassword.Size = new System.Drawing.Size(164, 22);
             this.textBoxPassword.TabIndex = 4;
             // 
-            // linkLabel1
+            // linkLabelSignUp
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.linkLabel1.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-            this.linkLabel1.Location = new System.Drawing.Point(140, 251);
-            this.linkLabel1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(141, 17);
-            this.linkLabel1.TabIndex = 5;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Create an account";
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            this.linkLabelSignUp.AutoSize = true;
+            this.linkLabelSignUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.linkLabelSignUp.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+            this.linkLabelSignUp.Location = new System.Drawing.Point(140, 251);
+            this.linkLabelSignUp.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.linkLabelSignUp.Name = "linkLabelSignUp";
+            this.linkLabelSignUp.Size = new System.Drawing.Size(141, 17);
+            this.linkLabelSignUp.TabIndex = 5;
+            this.linkLabelSignUp.TabStop = true;
+            this.linkLabelSignUp.Text = "Create an account";
+            this.linkLabelSignUp.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelSignUp_LinkClicked);
             // 
             // buttonSignIn
             // 
@@ -123,7 +123,7 @@
             this.buttonSignIn.TabIndex = 6;
             this.buttonSignIn.Text = "Next";
             this.buttonSignIn.UseVisualStyleBackColor = false;
-            this.buttonSignIn.Click += new System.EventHandler(this.button1_Click);
+            this.buttonSignIn.Click += new System.EventHandler(this.buttonSignIn_Click);
             // 
             // labelError
             // 
@@ -143,7 +143,7 @@
             this.ClientSize = new System.Drawing.Size(599, 366);
             this.Controls.Add(this.labelError);
             this.Controls.Add(this.buttonSignIn);
-            this.Controls.Add(this.linkLabel1);
+            this.Controls.Add(this.linkLabelSignUp);
             this.Controls.Add(this.textBoxPassword);
             this.Controls.Add(this.textBoxUsername);
             this.Controls.Add(this.label3);
@@ -169,7 +169,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBoxUsername;
         private System.Windows.Forms.TextBox textBoxPassword;
-        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.LinkLabel linkLabelSignUp;
         private System.Windows.Forms.Button buttonSignIn;
         private System.Windows.Forms.Label labelError;
     }

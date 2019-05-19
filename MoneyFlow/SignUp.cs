@@ -1,4 +1,5 @@
 ﻿using Data;
+using Data.Exceptions;
 using System;
 using System.Text.RegularExpressions;
 using System.Threading;
@@ -31,7 +32,14 @@ namespace Bookshelf
             Application.Run(new MainForm(userId, username));
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void linkLabelSignIn_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Close();
+            Thread td = new Thread(OpenSignInForm);
+            td.Start();
+        }
+
+        private void buttonSignUp_Click(object sender, EventArgs e)
         {
             labelError.Hide();
             if (textboxUsername.Text != "" && textBoxPassword1.Text != "" && textBoxPassword2.Text != "")
@@ -50,6 +58,11 @@ namespace Bookshelf
                                 Close();
                                 Thread td = new Thread(OpenMainForm);
                                 td.Start();
+                            }
+                            catch (InvalidUsernameException exc)
+                            {
+                                labelError.Show();
+                                labelError.Text = exc.Message;
                             }
                             catch
                             {
@@ -82,11 +95,5 @@ namespace Bookshelf
             }
         }
 
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            Close();
-            Thread td = new Thread(OpenSignInForm);
-            td.Start();
-        }
     }
 }

@@ -66,10 +66,8 @@ namespace Bookshelf
 
             foreach (Transaction transaction in allUserTransactions)
             {
-                if (!transaction.Service)
-                {
-                    dataGridView1.Rows.Add(transaction.Sum, transaction.Type, transaction.Date, transaction.Note);
-                }
+
+                dataGridView1.Rows.Add(transaction.Sum, transaction.Type, transaction.Date, transaction.Note);
 
                 chartBalance.Series[0].Points.AddY(transaction.CurrentBalance);
             }

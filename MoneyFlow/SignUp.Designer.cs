@@ -93,7 +93,7 @@
             this.linkLabelSignIn.TabIndex = 8;
             this.linkLabelSignIn.TabStop = true;
             this.linkLabelSignIn.Text = "Sign in";
-            this.linkLabelSignIn.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            this.linkLabelSignIn.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelSignIn_LinkClicked);
             // 
             // textboxUsername
             // 
@@ -136,7 +136,7 @@
             this.buttonSignUp.TabIndex = 9;
             this.buttonSignUp.Text = "Next";
             this.buttonSignUp.UseVisualStyleBackColor = false;
-            this.buttonSignUp.Click += new System.EventHandler(this.button1_Click);
+            this.buttonSignUp.Click += new System.EventHandler(this.buttonSignUp_Click);
             // 
             // labelError
             // 
