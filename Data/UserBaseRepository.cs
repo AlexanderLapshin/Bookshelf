@@ -89,7 +89,7 @@ namespace Data
                 moneyFlowDbContext.Transactions.Add(initialTransaction);
                 moneyFlowDbContext.SaveChanges();
 
-                return user.Id;
+                return newUser.Id;
             }
             throw new InvalidUsernameException("This username already exists");
         }

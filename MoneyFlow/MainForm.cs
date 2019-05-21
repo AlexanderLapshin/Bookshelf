@@ -9,6 +9,7 @@ namespace Bookshelf
 {
     public partial class MainForm : Form
     {
+        // Balance control variables
         private int userId;
         private string username;
         private double userBalance;
@@ -19,20 +20,38 @@ namespace Bookshelf
         private readonly string[] ExpenseTypesArray = new string[10] { "Goods", "Restaurant", "Leisure", "Transport", "Health", "Gifts", "Family", "Clothes", "Food", "Other" };
         private readonly string[] IncomeTypesArray = new string[2] { "Salary", "Other" };
 
+        // Calculator variables
+        private int depositeMonths;
+        private int depositeSum;
+        private double depositePercents;
+        private int depositeRepeats;
+        private bool depositePercentsOnDeposite;
+        private double sumAfterDeposite;
+
         public MainForm(int userId, string username)
         {
             InitializeComponent();
+
+            // Balance controle initialize
             this.userId = userId;
             this.username = username;
             userBalance = _userBase.GetBalance(userId);
 
             allUserTransactions = _transactionsBase.GetAllUserTransactions(userId);
             periodTransactions = allUserTransactions;
+
+            // Calculator initialize
+            depositeMonths = (int)numericUpDownMonths.Value;
+            depositePercents = (double)numericUpDownPercents.Value;
+            depositeSum = (int)numericUpDownSum.Value;
+            depositeRepeats = (int)numericUpDownExtension.Value;
+            depositePercentsOnDeposite = radioButtonOnDeposit.Checked ? true : false;
         }
 
         private void MainForm_Load(object sender, System.EventArgs e)
         {
-            // Setting table;
+            // Balance control setup
+            // Setting table
             DataGridViewColumn Sum = new DataGridViewColumn();
             Sum.HeaderText = "Sum";
             Sum.CellTemplate = new DataGridViewTextBoxCell();
@@ -56,7 +75,7 @@ namespace Bookshelf
 
 
             //Setting UI
-            groupBox2.Text = username;
+            groupBoxUsername.Text = username;
             labelBalance.Text = userBalance.ToString();
 
             Color textColor = (userBalance >= 0) ? Color.Green : Color.Red;
@@ -76,8 +95,14 @@ namespace Bookshelf
             comboBoxGraphicType.SelectedIndex = 0;
             comboBoxPeriod.SelectedIndex = comboBoxPeriod.Items.Count - 1;
 
+
+            // Calculator chart setup
+            sumAfterDeposite = getDepositValue(depositeMonths, depositePercents, depositeSum, depositeRepeats, depositePercentsOnDeposite);
+            drawDepositeChart(depositeSum, sumAfterDeposite);
+
         }
 
+        //  Balance control code
         private void addTransactionButton_Click(object sender, System.EventArgs e)
         {
             double transactionSum = (double)numericUpDownValue.Value;
@@ -196,7 +221,6 @@ namespace Bookshelf
                     break;
             }
         }
-
 
         private void DrawBalanceChart(List<Transaction> transactions)
         {
@@ -333,6 +357,143 @@ namespace Bookshelf
             {
                 chartExpenses.Series[0].Points.AddXY("Other\n" + other.ToString(), Math.Abs(other));
             }
+        }
+
+        // Calculator code
+        private double getDepositValue(int months, double percents, int sum, int repeats, bool percentsOnDeposit)
+        {
+            double percent = percents / 12;
+            double profit = 0;
+            double newSum = sum;
+
+            repeats++; // One repeat is 100%;
+            if (percentsOnDeposit)
+            {
+                for (int i = 0; i < repeats; i++)
+                {
+                    for (int j = 0; j < months; j++)
+                    {
+                        newSum += newSum / 100 * percent;
+                    }
+                }
+
+                return Math.Round(newSum);
+            }
+            else
+            {
+                for (int i = 0; i < repeats; i++)
+                {
+                    for (int j = 0; j < months; j++)
+                    {
+                        profit += sum / 100 * percent;
+                    }
+                }
+
+                return Math.Round(sum + profit);
+            }
+        }
+
+        private void drawDepositeChart(double sum, double sumAfterDeposite)
+        {
+            chartCalculator.Series[0].Points.Clear();
+            chartCalculator.Series[0].Points.AddXY("Invest", sum);
+            chartCalculator.Series[0].Points.AddXY("Receive", sumAfterDeposite);
+        }
+
+        private void trackBarMonths_Scroll(object sender, EventArgs e)
+        {
+            depositeMonths = trackBarMonths.Value;
+            numericUpDownMonths.Value = depositeMonths;
+
+            sumAfterDeposite = getDepositValue(depositeMonths, depositePercents, depositeSum, depositeRepeats, depositePercentsOnDeposite);
+
+            drawDepositeChart(depositeSum, sumAfterDeposite);
+        }
+
+        private void numericUpDownMonths_ValueChanged(object sender, EventArgs e)
+        {
+            depositeMonths = (int)numericUpDownMonths.Value;
+            trackBarMonths.Value = depositeMonths;
+
+            sumAfterDeposite = getDepositValue(depositeMonths, depositePercents, depositeSum, depositeRepeats, depositePercentsOnDeposite);
+
+            drawDepositeChart(depositeSum, sumAfterDeposite);
+        }
+
+        private void trackBarPercents_Scroll(object sender, EventArgs e)
+        {
+            depositePercents = trackBarPercents.Value;
+            numericUpDownPercents.Value = (decimal)depositePercents;
+
+            sumAfterDeposite = getDepositValue(depositeMonths, depositePercents, depositeSum, depositeRepeats, depositePercentsOnDeposite);
+
+            drawDepositeChart(depositeSum, sumAfterDeposite);
+        }
+
+        private void numericUpDownPercents_ValueChanged(object sender, EventArgs e)
+        {
+            depositePercents = (double)numericUpDownPercents.Value;
+            trackBarPercents.Value = (int)depositePercents;
+
+            sumAfterDeposite = getDepositValue(depositeMonths, depositePercents, depositeSum, depositeRepeats, depositePercentsOnDeposite);
+
+            drawDepositeChart(depositeSum, sumAfterDeposite);
+        }
+
+        private void trackBarSum_Scroll(object sender, EventArgs e)
+        {
+            depositeSum = trackBarSum.Value;
+            numericUpDownSum.Value = depositeSum;
+
+            sumAfterDeposite = getDepositValue(depositeMonths, depositePercents, depositeSum, depositeRepeats, depositePercentsOnDeposite);
+
+            drawDepositeChart(depositeSum, sumAfterDeposite);
+        }
+
+        private void numericUpDownSum_ValueChanged(object sender, EventArgs e)
+        {
+            depositeSum = (int)numericUpDownSum.Value;
+            trackBarSum.Value = depositeSum;
+
+            sumAfterDeposite = getDepositValue(depositeMonths, depositePercents, depositeSum, depositeRepeats, depositePercentsOnDeposite);
+
+            drawDepositeChart(depositeSum, sumAfterDeposite);
+        }
+
+        private void trackBarExtension_Scroll(object sender, EventArgs e)
+        {
+            depositeRepeats = trackBarExtension.Value;
+            numericUpDownExtension.Value = depositeRepeats;
+
+            sumAfterDeposite = getDepositValue(depositeMonths, depositePercents, depositeSum, depositeRepeats, depositePercentsOnDeposite);
+
+            drawDepositeChart(depositeSum, sumAfterDeposite);
+        }
+
+        private void numericUpDownExtension_ValueChanged(object sender, EventArgs e)
+        {
+            depositeRepeats = (int)numericUpDownExtension.Value;
+            trackBarExtension.Value = depositeRepeats;
+
+            sumAfterDeposite = getDepositValue(depositeMonths, depositePercents, depositeSum, depositeRepeats, depositePercentsOnDeposite);
+
+            drawDepositeChart(depositeSum, sumAfterDeposite);
+        }
+
+        private void radioButtonOnDeposit_CheckedChanged(object sender, EventArgs e)
+        {
+            depositePercentsOnDeposite = true;
+            sumAfterDeposite = getDepositValue(depositeMonths, depositePercents, depositeSum, depositeRepeats, depositePercentsOnDeposite);
+
+            drawDepositeChart(depositeSum, sumAfterDeposite);
+        }
+
+        private void radioButtonOnCard_CheckedChanged(object sender, EventArgs e)
+        {
+            depositePercentsOnDeposite = false;
+            sumAfterDeposite = getDepositValue(depositeMonths, depositePercents, depositeSum, depositeRepeats, depositePercentsOnDeposite);
+
+            drawDepositeChart(depositeSum, sumAfterDeposite);
         }
     }
 }
