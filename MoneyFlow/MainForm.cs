@@ -117,13 +117,22 @@ namespace Bookshelf
 
                     Transaction transaction = _transactionsBase.AddTransaction(transactionSum, userId, transactionType, note, userBalance);
                     allUserTransactions.Add(transaction);
+                    periodTransactions.Add(transaction);
 
                     dataGridView1.Rows.Add(transaction.Sum, transaction.Type, transaction.Date, transaction.Note);
                     chartBalance.Series[0].Points.AddY(transaction.CurrentBalance);
+                    if (comboBoxGraphicType.SelectedIndex == 1)
+                    {
+                        DrawIncomeExpnsesChart(periodTransactions);
+                    }
+                    else if (comboBoxGraphicType.SelectedIndex == 2)
+                    {
+                        DrawExpensesChart(periodTransactions);
+                    }
 
                     _userBase.SetBalance(userId, userBalance);
                     labelBalance.Text = userBalance.ToString();
-                    labelBalance.ForeColor = (userBalance >= 0) ? Color.Green : Color.Red;
+                    labelBalance.ForeColor = labelBalance2.ForeColor = (userBalance >= 0) ? Color.Green : Color.Red;
                 }
                 else
                 {
@@ -146,6 +155,7 @@ namespace Bookshelf
                 {
                     comboBoxType.Items.Clear();
                     comboBoxType.Items.AddRange(IncomeTypesArray);
+                    comboBoxType.SelectedIndex = 0;
                 }
             }
             else
@@ -155,6 +165,7 @@ namespace Bookshelf
                 {
                     comboBoxType.Items.Clear();
                     comboBoxType.Items.AddRange(ExpenseTypesArray);
+                    comboBoxType.SelectedIndex = 0;
                 }
             }
         }
@@ -188,17 +199,9 @@ namespace Bookshelf
                     periodTransactions = allUserTransactions;
                     break;
             }
-
-
-            if (comboBoxGraphicType.SelectedIndex == 0)
-            {
-                DrawBalanceChart(periodTransactions);
-            }
-            else
-            {
-                DrawExpensesChart(periodTransactions);
-            }
+            DrawChart();
         }
+
 
         private void comboBoxGraphicType_SelectedIndexChanged(object sender, System.EventArgs e)
         {
@@ -222,6 +225,23 @@ namespace Bookshelf
             }
         }
 
+
+        private void DrawChart()
+        {
+            switch (comboBoxGraphicType.SelectedIndex)
+            {
+                case 0:
+                    DrawBalanceChart(periodTransactions);
+                    break;
+                case 1:
+                    DrawIncomeExpnsesChart(periodTransactions);
+                    break;
+                case 2:
+                    DrawExpensesChart(periodTransactions);
+                    break;
+            }
+        }
+
         private void DrawBalanceChart(List<Transaction> transactions)
         {
             chartBalance.Series[0].Points.Clear();
@@ -236,7 +256,8 @@ namespace Bookshelf
         {
             double income = 0, expenses = 0;
 
-            chartBalance.Series[0].Points.Clear();
+            chartExpenses.Titles[0].Visible = false;
+            chartExpenses.Series[0].Points.Clear();
 
             foreach (Transaction transaction in transactions)
             {
@@ -249,8 +270,8 @@ namespace Bookshelf
                     expenses += transaction.Sum;
                 }
             }
-            chartExpenses.Series[0].Points.AddXY("Income", income);
-            chartExpenses.Series[0].Points.AddXY("Expenses", Math.Abs(expenses));
+            chartExpenses.Series[0].Points.AddXY("Income\n" + income.ToString(), income);
+            chartExpenses.Series[0].Points.AddXY("Expenses\n" + expenses.ToString(), Math.Abs(expenses));
         }
 
         private void DrawExpensesChart(List<Transaction> transactions)
@@ -304,8 +325,8 @@ namespace Bookshelf
                 }
             }
 
-            chartExpenses.Titles.Clear();
-            chartExpenses.Titles.Add("All Expenses: " + Math.Abs(allExpenses));
+            chartExpenses.Titles[0].Visible = true;
+            chartExpenses.Titles[0].Text = "All Expenses: " + Math.Abs(allExpenses);
 
             if (clothes != 0)
             {

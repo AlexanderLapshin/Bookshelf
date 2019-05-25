@@ -12,11 +12,5 @@ namespace Data
 
         public DbSet<User> Users { get; set; }
         public DbSet<Transaction> Transactions { get; set; }
-
-
-        protected override void OnModelCreating(DbModelBuilder builder)
-        {
-
-        }
     }
 }

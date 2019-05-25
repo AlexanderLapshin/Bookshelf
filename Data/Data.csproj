@@ -66,6 +66,10 @@
     <Compile Include="Migrations\201905191801567_deleted service field.Designer.cs">
       <DependentUpon>201905191801567_deleted service field.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201905210654122_deleted e-mail field.cs" />
+    <Compile Include="Migrations\201905210654122_deleted e-mail field.Designer.cs">
+      <DependentUpon>201905210654122_deleted e-mail field.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MoneyFlowDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -96,6 +100,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201905191801567_deleted service field.resx">
       <DependentUpon>201905191801567_deleted service field.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905210654122_deleted e-mail field.resx">
+      <DependentUpon>201905210654122_deleted e-mail field.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

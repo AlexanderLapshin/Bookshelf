@@ -31,6 +31,7 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
@@ -275,6 +276,7 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -303,6 +305,10 @@
             this.chartExpenses.Size = new System.Drawing.Size(545, 450);
             this.chartExpenses.TabIndex = 2;
             this.chartExpenses.Text = "chart2";
+            title1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            title1.Name = "Title1";
+            title1.Text = "Test";
+            this.chartExpenses.Titles.Add(title1);
             // 
             // groupBoxGraphic
             // 
@@ -327,7 +333,7 @@
             "This month",
             "This year",
             "All time"});
-            this.comboBoxPeriod.Location = new System.Drawing.Point(330, 32);
+            this.comboBoxPeriod.Location = new System.Drawing.Point(353, 32);
             this.comboBoxPeriod.Name = "comboBoxPeriod";
             this.comboBoxPeriod.Size = new System.Drawing.Size(121, 24);
             this.comboBoxPeriod.TabIndex = 1;
@@ -340,7 +346,7 @@
             "Balance",
             "Income/Expense",
             "Expenses"});
-            this.comboBoxGraphicType.Location = new System.Drawing.Point(63, 32);
+            this.comboBoxGraphicType.Location = new System.Drawing.Point(76, 32);
             this.comboBoxGraphicType.Name = "comboBoxGraphicType";
             this.comboBoxGraphicType.Size = new System.Drawing.Size(121, 24);
             this.comboBoxGraphicType.TabIndex = 0;
@@ -394,7 +400,7 @@
             // 
             this.splitContainer2.Panel2.Controls.Add(this.chartCalculator);
             this.splitContainer2.Size = new System.Drawing.Size(947, 537);
-            this.splitContainer2.SplitterDistance = 500;
+            this.splitContainer2.SplitterDistance = 508;
             this.splitContainer2.TabIndex = 0;
             // 
             // groupBoxPercents
@@ -406,7 +412,7 @@
             this.groupBoxPercents.ForeColor = System.Drawing.Color.RoyalBlue;
             this.groupBoxPercents.Location = new System.Drawing.Point(0, 442);
             this.groupBoxPercents.Name = "groupBoxPercents";
-            this.groupBoxPercents.Size = new System.Drawing.Size(500, 100);
+            this.groupBoxPercents.Size = new System.Drawing.Size(508, 100);
             this.groupBoxPercents.TabIndex = 3;
             this.groupBoxPercents.TabStop = false;
             this.groupBoxPercents.Text = "Percents";
@@ -444,7 +450,7 @@
             this.groupBoxExtension.ForeColor = System.Drawing.Color.RoyalBlue;
             this.groupBoxExtension.Location = new System.Drawing.Point(0, 332);
             this.groupBoxExtension.Name = "groupBoxExtension";
-            this.groupBoxExtension.Size = new System.Drawing.Size(500, 110);
+            this.groupBoxExtension.Size = new System.Drawing.Size(508, 110);
             this.groupBoxExtension.TabIndex = 2;
             this.groupBoxExtension.TabStop = false;
             this.groupBoxExtension.Text = "Extension Count";
@@ -482,7 +488,7 @@
             this.groupBoxSum.ForeColor = System.Drawing.Color.RoyalBlue;
             this.groupBoxSum.Location = new System.Drawing.Point(0, 218);
             this.groupBoxSum.Name = "groupBoxSum";
-            this.groupBoxSum.Size = new System.Drawing.Size(500, 114);
+            this.groupBoxSum.Size = new System.Drawing.Size(508, 114);
             this.groupBoxSum.TabIndex = 1;
             this.groupBoxSum.TabStop = false;
             this.groupBoxSum.Text = "Sum";
@@ -532,7 +538,7 @@
             this.groupBoxRate.ForeColor = System.Drawing.Color.RoyalBlue;
             this.groupBoxRate.Location = new System.Drawing.Point(0, 0);
             this.groupBoxRate.Name = "groupBoxRate";
-            this.groupBoxRate.Size = new System.Drawing.Size(500, 218);
+            this.groupBoxRate.Size = new System.Drawing.Size(508, 218);
             this.groupBoxRate.TabIndex = 0;
             this.groupBoxRate.TabStop = false;
             this.groupBoxRate.Text = "Rate/Term";
@@ -639,7 +645,7 @@
             series3.Legend = "Legend1";
             series3.Name = "Series2";
             this.chartCalculator.Series.Add(series3);
-            this.chartCalculator.Size = new System.Drawing.Size(443, 537);
+            this.chartCalculator.Size = new System.Drawing.Size(435, 537);
             this.chartCalculator.TabIndex = 0;
             this.chartCalculator.Text = "chart1";
             // 
