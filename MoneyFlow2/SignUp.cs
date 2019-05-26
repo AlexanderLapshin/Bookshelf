@@ -18,8 +18,8 @@ namespace Bookshelf
         private UserBaseRepository _userBase = new UserBaseRepository();
         private int userId;
         private string username;
-        string usernameRegexPattern = @"^[a-zA-Z][a-zA-Z0-9-_\.]{4,20}$";
-        string passwordRegexPattern = @"^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,64})";
+        const string usernameRegexPattern = @"^[a-zA-Z][a-zA-Z0-9-_\.]{4,20}$";
+        const string passwordRegexPattern = @"^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,64})";
 
 
         private void OpenSignInForm()
@@ -53,7 +53,7 @@ namespace Bookshelf
                         {
                             try
                             {
-                                userId = _userBase.SignUp(textboxUsername.Text, textBoxPassword1.Text);
+                                //userId = _userBase.SignUp(textboxUsername.Text, textBoxPassword1.Text);
                                 username = textboxUsername.Text;
                                 Close();
                                 Thread td = new Thread(OpenMainForm);

@@ -172,9 +172,8 @@
             // splitContainer1.Panel2
             // 
             this.bunifuTransition1.SetDecoration(this.splitContainer1.Panel2, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
-            this.splitContainer1.Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel2_Paint);
             this.splitContainer1.Size = new System.Drawing.Size(1050, 620);
-            this.splitContainer1.SplitterDistance = 350;
+            this.splitContainer1.SplitterDistance = 439;
             this.splitContainer1.TabIndex = 1;
             // 
             // MainForm

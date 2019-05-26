@@ -37,19 +37,19 @@ namespace Data
                 {
                     if (hashBytes[i + 16] != hash[i])
                     {
-                        throw new InvalidPasswordException("Invalid username or password");
+                        throw new InvalidPasswordException("Login Failed");
                     }
                 }
 
                 return user.Id;
             }
-            throw new InvalidUsernameException("Invalid username or password");
+            throw new InvalidUsernameException("Login Failed");
         }
 
         //!!
         // MAKE VERIFICATION IF USER WItH THIS USERNAME ALREADY EXIST!!!
         //!!
-        public int SignUp(string username, string password)
+        public int SignUp(string username, string password, string firstName, string lastName)
         {
             User user = moneyFlowDbContext.Users
                             .Where(u => u.Username == username)
@@ -70,6 +70,8 @@ namespace Data
                 {
                     Username = username,
                     PasswordHash = savedPasswordHash,
+                    FirstName = firstName,
+                    LastName = lastName,
                     Balance = 0
                 };
 

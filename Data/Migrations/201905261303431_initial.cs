@@ -16,6 +16,7 @@ namespace Data.Migrations
                         Type = c.Int(nullable: false),
                         Date = c.DateTime(nullable: false),
                         Note = c.String(),
+                        CurrentBalance = c.Double(nullable: false),
                         UserID = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
@@ -29,7 +30,8 @@ namespace Data.Migrations
                         Id = c.Int(nullable: false, identity: true),
                         Username = c.String(nullable: false, maxLength: 30),
                         PasswordHash = c.String(),
-                        Email = c.String(),
+                        FirstName = c.String(),
+                        LastName = c.String(),
                         Balance = c.Double(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)

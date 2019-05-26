@@ -5,7 +5,7 @@ namespace MoneyFlow
 {
     public partial class MainForm : Form
     {
-        public MainForm()
+        public MainForm(int userID)
         {
             InitializeComponent();
         }

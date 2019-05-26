@@ -67,7 +67,7 @@ namespace Bookshelf
             else
             {
                 labelError.Show();
-                labelError.Text = "Incorrect input";
+                labelError.Text = "Login Failed";
             }
         }
     }

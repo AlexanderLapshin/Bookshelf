@@ -162,13 +162,6 @@
     <value>177, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="bunifuTextBoxSignUpPassword2.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAMgAAAAjCAYAAADR20XfAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAA+SURBVHhe7cOxDQAgDAMwTmVOnujp7FzQwZZ8AAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAADYJsltO+q/8wDP6l61dFMlqgAAAABJRU5ErkJggg==
-</value>
-  </data>
   <data name="bunifuButtonSignUpNext.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAKoAAAAtCAYAAAA+w/DiAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -178,7 +171,7 @@
         qCQYlYSx7tf5F2Aa+3W+sHBUjDSJgKgAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="bunifuTextBoxSignUpPassword.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="bunifuTextBoxSignUpPassword2.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAMgAAAAjCAYAAADR20XfAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAA+SURBVHhe7cOxDQAgDAMwTmVOnujp7FzQwZZ8AAAAAAAA
@@ -190,6 +183,36 @@
         iVBORw0KGgoAAAANSUhEUgAAAMgAAAAjCAYAAADR20XfAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAySURBVHhe7cEBDQAAAMKg909tDjcgAAAAAAAAAAAAAAAA
         AAAAAAAAAAAAAAAAAACAFzVtgwABN+yBcAAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="bunifuTextBoxSignUpPassword.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAMgAAAAjCAYAAADR20XfAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAA+SURBVHhe7cOxDQAgDAMwTmVOnujp7FzQwZZ8AAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAADYJsltO+q/8wDP6l61dFMlqgAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="bunifuButtonSignUpFinishSetup.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAKoAAAAtCAYAAAA+w/DiAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACoSURBVHhe7dIxDYBAAMDA1wSGsAFmcAHyIOwI+CY33NS1
+        YznubT3uB2b1PTr+AszGqCQYlQSjkmBUEoxKglFJMCoJRiXBqCQYlQSjkmBUEoxKglFJMCoJRiXBqCQY
+        lQSjkmBUEoxKglFJMCoJRiXBqCQYlQSjkmBUEoxKglFJMCoJRiXBqCQYlQSjkmBUEoxKglFJMCoJRiXB
+        qCQYlYSx7tf5F2Aa+3W+sHBUjDSJgKgAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="bunifuTextBoxSignUpLastName.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAMgAAAAjCAYAAADR20XfAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAA+SURBVHhe7cOxDQAgDAMwTmVOnujp7FzQwZZ8AAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAADYJsltO+q/8wDP6l61dFMlqgAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="bunifuTextBoxSignUpFirstName.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAMgAAAAjCAYAAADR20XfAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAA+SURBVHhe7cOxDQAgDAMwTmVOnujp7FzQwZZ8AAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAADYJsltO+q/8wDP6l61dFMlqgAAAABJRU5ErkJggg==
 </value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

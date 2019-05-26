@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Data;
+using Data.Exceptions;
+using System;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -6,6 +9,11 @@ namespace MoneyFlow
 {
     public partial class SignUp : Form
     {
+        private UserBaseRepository _userBase = new UserBaseRepository();
+        private int userId;
+        const string usernameRegexPattern = @"^[a-zA-Z][a-zA-Z0-9-_\.]{4,20}$";
+        const string passwordRegexPattern = @"^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,64})";
+
         public SignUp()
         {
             InitializeComponent();
@@ -17,6 +25,11 @@ namespace MoneyFlow
         }
 
 
+        private void OpenMainForm()
+        {
+            Application.Run(new MainForm(userId));
+        }
+
         private void buttonSignUpClose_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -27,11 +40,79 @@ namespace MoneyFlow
             this.WindowState = FormWindowState.Minimized;
         }
 
+        private void bunifuButtonSignUpNext_Click(object sender, EventArgs e)
+        {
+            bunifuTransition1.HideSync(labelSignUpError, false, Bunifu.UI.WinForms.BunifuAnimatorNS.Animation.Transparent);
+            if (bunifuTextBoxSignUpUsername.Text != "" && bunifuTextBoxSignUpPassword.Text != "" && bunifuTextBoxSignUpPassword2.Text != "")
+            {
+
+                if (Regex.IsMatch(bunifuTextBoxSignUpUsername.Text, usernameRegexPattern))
+                {
+                    if (Regex.IsMatch(bunifuTextBoxSignUpPassword.Text, passwordRegexPattern))
+                    {
+                        if (bunifuTextBoxSignUpPassword.Text == bunifuTextBoxSignUpPassword2.Text)
+                        {
+                            bunifuPages1.SetPage(1);
+                        }
+                        else
+                        {
+                            labelSignUpError.Text = "Passwords didn't match";
+                            bunifuTransition1.Show(labelSignUpError, false, Bunifu.UI.WinForms.BunifuAnimatorNS.Animation.Transparent);
+                        }
+                    }
+                    else
+                    {
+                        labelSignUpError.Text = "Invalid password";
+                        bunifuTransition1.Show(labelSignUpError, false, Bunifu.UI.WinForms.BunifuAnimatorNS.Animation.Transparent);
+                    }
+                }
+                else
+                {
+                    labelSignUpError.Text = "Invalid username";
+                    bunifuTransition1.Show(labelSignUpError, false, Bunifu.UI.WinForms.BunifuAnimatorNS.Animation.Transparent);
+                }
+            }
+            else
+            {
+                labelSignUpError.Text = "Enter all the fields";
+                bunifuTransition1.Show(labelSignUpError, false, Bunifu.UI.WinForms.BunifuAnimatorNS.Animation.Transparent);
+            }
+        }
+
         private void linkLabelSignUpSignIn_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Close();
             Thread td = new Thread(OpenSignInForm);
             td.Start();
+        }
+
+        private void bunifuButtonSignUpFinishSetup_Click(object sender, EventArgs e)
+        {
+            if (bunifuTextBoxSignUpFirstName.Text != "" && bunifuTextBoxSignUpLastName.Text != "")
+            {
+                try
+                {
+                    userId = _userBase.SignUp(bunifuTextBoxSignUpUsername.Text, bunifuTextBoxSignUpPassword.Text, bunifuTextBoxSignUpFirstName.Text, bunifuTextBoxSignUpLastName.Text);
+                    Close();
+                    Thread td = new Thread(OpenMainForm);
+                    td.Start();
+                }
+                catch (InvalidUsernameException exc)
+                {
+                    labelSignUpError.Text = exc.Message;
+                    bunifuTransition1.Show(labelSignUpError, false, Bunifu.UI.WinForms.BunifuAnimatorNS.Animation.Transparent);
+                }
+                catch
+                {
+                    labelSignUpError2.Text = "Something went wrong";
+                    bunifuTransition1.Show(labelSignUpError, false, Bunifu.UI.WinForms.BunifuAnimatorNS.Animation.Transparent);
+                }
+            }
+            else
+            {
+                labelSignUpError2.Text = "Enter all the fields";
+                bunifuTransition1.Show(labelSignUpError, false, Bunifu.UI.WinForms.BunifuAnimatorNS.Animation.Transparent);
+            }
         }
     }
 }

@@ -10,8 +10,10 @@ namespace Bookshelf
         static void Main()
         {
             // Create database
+
             using (var client = new MoneyFlowDbContext())
             {
+                client.Database.Delete();
                 client.Database.CreateIfNotExists();
             }
 
