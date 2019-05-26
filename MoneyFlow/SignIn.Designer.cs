@@ -29,25 +29,25 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
-            Bunifu.UI.WinForms.BunifuAnimatorNS.Animation animation1 = new Bunifu.UI.WinForms.BunifuAnimatorNS.Animation();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties6 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
+            Bunifu.UI.WinForms.BunifuAnimatorNS.Animation animation6 = new Bunifu.UI.WinForms.BunifuAnimatorNS.Animation();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SignIn));
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.bunifuPictureBox1 = new Bunifu.UI.WinForms.BunifuPictureBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonSignInMinimize = new System.Windows.Forms.Button();
+            this.labelSignInAppname = new System.Windows.Forms.Label();
+            this.bunifuPictureBoxSignInIcon = new Bunifu.UI.WinForms.BunifuPictureBox();
+            this.buttonSignInClose = new System.Windows.Forms.Button();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.bunifuTextBox2 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
-            this.bunifuTextBox1 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.bunifuButton1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.label3 = new System.Windows.Forms.Label();
+            this.bunifuTextBoxSignInPassword = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
+            this.bunifuTextBoxSignInUsername = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
+            this.labelSignIn = new System.Windows.Forms.Label();
+            this.bunifuButtonSignInNext = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
+            this.linkLabelSignInSignUp = new System.Windows.Forms.LinkLabel();
+            this.labelSignInError = new System.Windows.Forms.Label();
             this.bunifuTransition1 = new Bunifu.UI.WinForms.BunifuTransition(this.components);
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bunifuPictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bunifuPictureBoxSignInIcon)).BeginInit();
             this.SuspendLayout();
             // 
             // bunifuDragControl1
@@ -60,10 +60,10 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(28)))), ((int)(((byte)(31)))));
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.bunifuPictureBox1);
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.buttonSignInMinimize);
+            this.panel1.Controls.Add(this.labelSignInAppname);
+            this.panel1.Controls.Add(this.bunifuPictureBoxSignInIcon);
+            this.panel1.Controls.Add(this.buttonSignInClose);
             this.bunifuTransition1.SetDecoration(this.panel1, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -71,284 +71,285 @@
             this.panel1.Size = new System.Drawing.Size(525, 27);
             this.panel1.TabIndex = 0;
             // 
-            // button2
+            // buttonSignInMinimize
             // 
-            this.bunifuTransition1.SetDecoration(this.button2, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
-            this.button2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button2.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.button2.Location = new System.Drawing.Point(453, 0);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(33, 27);
-            this.button2.TabIndex = 0;
-            this.button2.TabStop = false;
-            this.button2.Text = "_";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.bunifuTransition1.SetDecoration(this.buttonSignInMinimize, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.buttonSignInMinimize.Dock = System.Windows.Forms.DockStyle.Right;
+            this.buttonSignInMinimize.FlatAppearance.BorderSize = 0;
+            this.buttonSignInMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSignInMinimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonSignInMinimize.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.buttonSignInMinimize.Location = new System.Drawing.Point(453, 0);
+            this.buttonSignInMinimize.Name = "buttonSignInMinimize";
+            this.buttonSignInMinimize.Size = new System.Drawing.Size(33, 27);
+            this.buttonSignInMinimize.TabIndex = 0;
+            this.buttonSignInMinimize.TabStop = false;
+            this.buttonSignInMinimize.Text = "_";
+            this.buttonSignInMinimize.UseVisualStyleBackColor = true;
+            this.buttonSignInMinimize.Click += new System.EventHandler(this.buttonSignInMinimize_Click);
             // 
-            // label1
+            // labelSignInAppname
             // 
-            this.label1.AutoSize = true;
-            this.bunifuTransition1.SetDecoration(this.label1, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(33, 6);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(77, 16);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "MoneyFlow";
+            this.labelSignInAppname.AutoSize = true;
+            this.bunifuTransition1.SetDecoration(this.labelSignInAppname, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.labelSignInAppname.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelSignInAppname.ForeColor = System.Drawing.Color.White;
+            this.labelSignInAppname.Location = new System.Drawing.Point(33, 6);
+            this.labelSignInAppname.Name = "labelSignInAppname";
+            this.labelSignInAppname.Size = new System.Drawing.Size(77, 16);
+            this.labelSignInAppname.TabIndex = 2;
+            this.labelSignInAppname.Text = "MoneyFlow";
             // 
-            // bunifuPictureBox1
+            // bunifuPictureBoxSignInIcon
             // 
-            this.bunifuPictureBox1.AllowFocused = false;
-            this.bunifuPictureBox1.BorderRadius = 13;
-            this.bunifuTransition1.SetDecoration(this.bunifuPictureBox1, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
-            this.bunifuPictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.bunifuPictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("bunifuPictureBox1.Image")));
-            this.bunifuPictureBox1.IsCircle = true;
-            this.bunifuPictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.bunifuPictureBox1.Name = "bunifuPictureBox1";
-            this.bunifuPictureBox1.Size = new System.Drawing.Size(27, 27);
-            this.bunifuPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.bunifuPictureBox1.TabIndex = 1;
-            this.bunifuPictureBox1.TabStop = false;
-            this.bunifuPictureBox1.Type = Bunifu.UI.WinForms.BunifuPictureBox.Types.Square;
+            this.bunifuPictureBoxSignInIcon.AllowFocused = false;
+            this.bunifuPictureBoxSignInIcon.BorderRadius = 13;
+            this.bunifuTransition1.SetDecoration(this.bunifuPictureBoxSignInIcon, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.bunifuPictureBoxSignInIcon.Dock = System.Windows.Forms.DockStyle.Left;
+            this.bunifuPictureBoxSignInIcon.Image = ((System.Drawing.Image)(resources.GetObject("bunifuPictureBoxSignInIcon.Image")));
+            this.bunifuPictureBoxSignInIcon.IsCircle = true;
+            this.bunifuPictureBoxSignInIcon.Location = new System.Drawing.Point(0, 0);
+            this.bunifuPictureBoxSignInIcon.Name = "bunifuPictureBoxSignInIcon";
+            this.bunifuPictureBoxSignInIcon.Size = new System.Drawing.Size(27, 27);
+            this.bunifuPictureBoxSignInIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.bunifuPictureBoxSignInIcon.TabIndex = 1;
+            this.bunifuPictureBoxSignInIcon.TabStop = false;
+            this.bunifuPictureBoxSignInIcon.Type = Bunifu.UI.WinForms.BunifuPictureBox.Types.Square;
             // 
-            // button1
+            // buttonSignInClose
             // 
-            this.button1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.bunifuTransition1.SetDecoration(this.button1, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
-            this.button1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.button1.Location = new System.Drawing.Point(486, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(39, 27);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "X";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.buttonSignInClose.Cursor = System.Windows.Forms.Cursors.Default;
+            this.bunifuTransition1.SetDecoration(this.buttonSignInClose, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.buttonSignInClose.Dock = System.Windows.Forms.DockStyle.Right;
+            this.buttonSignInClose.FlatAppearance.BorderSize = 0;
+            this.buttonSignInClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.buttonSignInClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.buttonSignInClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSignInClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonSignInClose.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.buttonSignInClose.Location = new System.Drawing.Point(486, 0);
+            this.buttonSignInClose.Name = "buttonSignInClose";
+            this.buttonSignInClose.Size = new System.Drawing.Size(39, 27);
+            this.buttonSignInClose.TabIndex = 0;
+            this.buttonSignInClose.Text = "X";
+            this.buttonSignInClose.UseVisualStyleBackColor = true;
+            this.buttonSignInClose.Click += new System.EventHandler(this.buttonSignInClose_Click);
             // 
             // bunifuElipse1
             // 
             this.bunifuElipse1.ElipseRadius = 5;
             this.bunifuElipse1.TargetControl = this;
             // 
-            // bunifuTextBox2
+            // bunifuTextBoxSignInPassword
             // 
-            this.bunifuTextBox2.AcceptsReturn = false;
-            this.bunifuTextBox2.AcceptsTab = false;
-            this.bunifuTextBox2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
-            this.bunifuTextBox2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-            this.bunifuTextBox2.BackColor = System.Drawing.Color.White;
-            this.bunifuTextBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuTextBox2.BackgroundImage")));
-            this.bunifuTextBox2.BorderColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(45)))), ((int)(((byte)(145)))));
-            this.bunifuTextBox2.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
-            this.bunifuTextBox2.BorderColorHover = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(38)))), ((int)(((byte)(157)))));
-            this.bunifuTextBox2.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(107)))), ((int)(((byte)(107)))));
-            this.bunifuTextBox2.BorderRadius = 1;
-            this.bunifuTextBox2.BorderThickness = 2;
-            this.bunifuTextBox2.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.bunifuTransition1.SetDecoration(this.bunifuTextBox2, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
-            this.bunifuTextBox2.DefaultFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.bunifuTextBox2.DefaultText = "";
-            this.bunifuTextBox2.FillColor = System.Drawing.Color.White;
-            this.bunifuTextBox2.HideSelection = true;
-            this.bunifuTextBox2.IconLeft = global::MoneyFlow.Properties.Resources.pas;
-            this.bunifuTextBox2.IconLeftCursor = System.Windows.Forms.Cursors.Default;
-            this.bunifuTextBox2.IconPadding = 10;
-            this.bunifuTextBox2.IconRight = null;
-            this.bunifuTextBox2.IconRightCursor = System.Windows.Forms.Cursors.Default;
-            this.bunifuTextBox2.Location = new System.Drawing.Point(160, 311);
-            this.bunifuTextBox2.MaxLength = 32767;
-            this.bunifuTextBox2.MinimumSize = new System.Drawing.Size(100, 35);
-            this.bunifuTextBox2.Modified = false;
-            this.bunifuTextBox2.Name = "bunifuTextBox2";
-            this.bunifuTextBox2.PasswordChar = '•';
-            this.bunifuTextBox2.ReadOnly = false;
-            this.bunifuTextBox2.SelectedText = "";
-            this.bunifuTextBox2.SelectionLength = 0;
-            this.bunifuTextBox2.SelectionStart = 0;
-            this.bunifuTextBox2.ShortcutsEnabled = true;
-            this.bunifuTextBox2.Size = new System.Drawing.Size(200, 35);
-            this.bunifuTextBox2.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Material;
-            this.bunifuTextBox2.TabIndex = 2;
-            this.bunifuTextBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.bunifuTextBox2.TextMarginLeft = 10;
-            this.bunifuTextBox2.TextPlaceholder = "Password";
-            this.bunifuTextBox2.UseSystemPasswordChar = false;
+            this.bunifuTextBoxSignInPassword.AcceptsReturn = false;
+            this.bunifuTextBoxSignInPassword.AcceptsTab = false;
+            this.bunifuTextBoxSignInPassword.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.bunifuTextBoxSignInPassword.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.bunifuTextBoxSignInPassword.BackColor = System.Drawing.Color.White;
+            this.bunifuTextBoxSignInPassword.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuTextBoxSignInPassword.BackgroundImage")));
+            this.bunifuTextBoxSignInPassword.BorderColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(45)))), ((int)(((byte)(145)))));
+            this.bunifuTextBoxSignInPassword.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
+            this.bunifuTextBoxSignInPassword.BorderColorHover = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(38)))), ((int)(((byte)(157)))));
+            this.bunifuTextBoxSignInPassword.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(107)))), ((int)(((byte)(107)))));
+            this.bunifuTextBoxSignInPassword.BorderRadius = 1;
+            this.bunifuTextBoxSignInPassword.BorderThickness = 2;
+            this.bunifuTextBoxSignInPassword.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.bunifuTransition1.SetDecoration(this.bunifuTextBoxSignInPassword, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.bunifuTextBoxSignInPassword.DefaultFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.bunifuTextBoxSignInPassword.DefaultText = "";
+            this.bunifuTextBoxSignInPassword.FillColor = System.Drawing.Color.White;
+            this.bunifuTextBoxSignInPassword.HideSelection = true;
+            this.bunifuTextBoxSignInPassword.IconLeft = global::MoneyFlow.Properties.Resources.pas;
+            this.bunifuTextBoxSignInPassword.IconLeftCursor = System.Windows.Forms.Cursors.Default;
+            this.bunifuTextBoxSignInPassword.IconPadding = 10;
+            this.bunifuTextBoxSignInPassword.IconRight = null;
+            this.bunifuTextBoxSignInPassword.IconRightCursor = System.Windows.Forms.Cursors.Default;
+            this.bunifuTextBoxSignInPassword.Location = new System.Drawing.Point(160, 311);
+            this.bunifuTextBoxSignInPassword.MaxLength = 32767;
+            this.bunifuTextBoxSignInPassword.MinimumSize = new System.Drawing.Size(100, 35);
+            this.bunifuTextBoxSignInPassword.Modified = false;
+            this.bunifuTextBoxSignInPassword.Name = "bunifuTextBoxSignInPassword";
+            this.bunifuTextBoxSignInPassword.PasswordChar = '•';
+            this.bunifuTextBoxSignInPassword.ReadOnly = false;
+            this.bunifuTextBoxSignInPassword.SelectedText = "";
+            this.bunifuTextBoxSignInPassword.SelectionLength = 0;
+            this.bunifuTextBoxSignInPassword.SelectionStart = 0;
+            this.bunifuTextBoxSignInPassword.ShortcutsEnabled = true;
+            this.bunifuTextBoxSignInPassword.Size = new System.Drawing.Size(200, 35);
+            this.bunifuTextBoxSignInPassword.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Material;
+            this.bunifuTextBoxSignInPassword.TabIndex = 2;
+            this.bunifuTextBoxSignInPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.bunifuTextBoxSignInPassword.TextMarginLeft = 10;
+            this.bunifuTextBoxSignInPassword.TextPlaceholder = "Password";
+            this.bunifuTextBoxSignInPassword.UseSystemPasswordChar = false;
             // 
-            // bunifuTextBox1
+            // bunifuTextBoxSignInUsername
             // 
-            this.bunifuTextBox1.AcceptsReturn = false;
-            this.bunifuTextBox1.AcceptsTab = false;
-            this.bunifuTextBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
-            this.bunifuTextBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-            this.bunifuTextBox1.BackColor = System.Drawing.Color.White;
-            this.bunifuTextBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuTextBox1.BackgroundImage")));
-            this.bunifuTextBox1.BorderColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(45)))), ((int)(((byte)(145)))));
-            this.bunifuTextBox1.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
-            this.bunifuTextBox1.BorderColorHover = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(38)))), ((int)(((byte)(157)))));
-            this.bunifuTextBox1.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(107)))), ((int)(((byte)(107)))));
-            this.bunifuTextBox1.BorderRadius = 1;
-            this.bunifuTextBox1.BorderThickness = 1;
-            this.bunifuTextBox1.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.bunifuTransition1.SetDecoration(this.bunifuTextBox1, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
-            this.bunifuTextBox1.DefaultFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.bunifuTextBox1.DefaultText = "";
-            this.bunifuTextBox1.FillColor = System.Drawing.Color.White;
-            this.bunifuTextBox1.HideSelection = true;
-            this.bunifuTextBox1.IconLeft = global::MoneyFlow.Properties.Resources.username;
-            this.bunifuTextBox1.IconLeftCursor = System.Windows.Forms.Cursors.Default;
-            this.bunifuTextBox1.IconPadding = 10;
-            this.bunifuTextBox1.IconRight = null;
-            this.bunifuTextBox1.IconRightCursor = System.Windows.Forms.Cursors.Default;
-            this.bunifuTextBox1.Location = new System.Drawing.Point(160, 254);
-            this.bunifuTextBox1.MaxLength = 32767;
-            this.bunifuTextBox1.MinimumSize = new System.Drawing.Size(100, 35);
-            this.bunifuTextBox1.Modified = false;
-            this.bunifuTextBox1.Name = "bunifuTextBox1";
-            this.bunifuTextBox1.PasswordChar = '\0';
-            this.bunifuTextBox1.ReadOnly = false;
-            this.bunifuTextBox1.SelectedText = "";
-            this.bunifuTextBox1.SelectionLength = 0;
-            this.bunifuTextBox1.SelectionStart = 0;
-            this.bunifuTextBox1.ShortcutsEnabled = true;
-            this.bunifuTextBox1.Size = new System.Drawing.Size(200, 35);
-            this.bunifuTextBox1.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Material;
-            this.bunifuTextBox1.TabIndex = 1;
-            this.bunifuTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.bunifuTextBox1.TextMarginLeft = 10;
-            this.bunifuTextBox1.TextPlaceholder = "Username";
-            this.bunifuTextBox1.UseSystemPasswordChar = false;
+            this.bunifuTextBoxSignInUsername.AcceptsReturn = false;
+            this.bunifuTextBoxSignInUsername.AcceptsTab = false;
+            this.bunifuTextBoxSignInUsername.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.bunifuTextBoxSignInUsername.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.bunifuTextBoxSignInUsername.BackColor = System.Drawing.Color.White;
+            this.bunifuTextBoxSignInUsername.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuTextBoxSignInUsername.BackgroundImage")));
+            this.bunifuTextBoxSignInUsername.BorderColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(45)))), ((int)(((byte)(145)))));
+            this.bunifuTextBoxSignInUsername.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
+            this.bunifuTextBoxSignInUsername.BorderColorHover = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(38)))), ((int)(((byte)(157)))));
+            this.bunifuTextBoxSignInUsername.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(107)))), ((int)(((byte)(107)))));
+            this.bunifuTextBoxSignInUsername.BorderRadius = 1;
+            this.bunifuTextBoxSignInUsername.BorderThickness = 1;
+            this.bunifuTextBoxSignInUsername.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.bunifuTransition1.SetDecoration(this.bunifuTextBoxSignInUsername, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.bunifuTextBoxSignInUsername.DefaultFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.bunifuTextBoxSignInUsername.DefaultText = "";
+            this.bunifuTextBoxSignInUsername.FillColor = System.Drawing.Color.White;
+            this.bunifuTextBoxSignInUsername.HideSelection = true;
+            this.bunifuTextBoxSignInUsername.IconLeft = global::MoneyFlow.Properties.Resources.username;
+            this.bunifuTextBoxSignInUsername.IconLeftCursor = System.Windows.Forms.Cursors.Default;
+            this.bunifuTextBoxSignInUsername.IconPadding = 10;
+            this.bunifuTextBoxSignInUsername.IconRight = null;
+            this.bunifuTextBoxSignInUsername.IconRightCursor = System.Windows.Forms.Cursors.Default;
+            this.bunifuTextBoxSignInUsername.Location = new System.Drawing.Point(160, 254);
+            this.bunifuTextBoxSignInUsername.MaxLength = 32767;
+            this.bunifuTextBoxSignInUsername.MinimumSize = new System.Drawing.Size(100, 35);
+            this.bunifuTextBoxSignInUsername.Modified = false;
+            this.bunifuTextBoxSignInUsername.Name = "bunifuTextBoxSignInUsername";
+            this.bunifuTextBoxSignInUsername.PasswordChar = '\0';
+            this.bunifuTextBoxSignInUsername.ReadOnly = false;
+            this.bunifuTextBoxSignInUsername.SelectedText = "";
+            this.bunifuTextBoxSignInUsername.SelectionLength = 0;
+            this.bunifuTextBoxSignInUsername.SelectionStart = 0;
+            this.bunifuTextBoxSignInUsername.ShortcutsEnabled = true;
+            this.bunifuTextBoxSignInUsername.Size = new System.Drawing.Size(200, 35);
+            this.bunifuTextBoxSignInUsername.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Material;
+            this.bunifuTextBoxSignInUsername.TabIndex = 1;
+            this.bunifuTextBoxSignInUsername.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.bunifuTextBoxSignInUsername.TextMarginLeft = 10;
+            this.bunifuTextBoxSignInUsername.TextPlaceholder = "Username";
+            this.bunifuTextBoxSignInUsername.UseSystemPasswordChar = false;
             // 
-            // label2
+            // labelSignIn
             // 
-            this.label2.AutoSize = true;
-            this.bunifuTransition1.SetDecoration(this.label2, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(188, 176);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(140, 42);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Sign In";
+            this.labelSignIn.AutoSize = true;
+            this.bunifuTransition1.SetDecoration(this.labelSignIn, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.labelSignIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelSignIn.ForeColor = System.Drawing.Color.White;
+            this.labelSignIn.Location = new System.Drawing.Point(188, 176);
+            this.labelSignIn.Name = "labelSignIn";
+            this.labelSignIn.Size = new System.Drawing.Size(140, 42);
+            this.labelSignIn.TabIndex = 3;
+            this.labelSignIn.Text = "Sign In";
             // 
-            // bunifuButton1
+            // bunifuButtonSignInNext
             // 
-            this.bunifuButton1.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuButton1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuButton1.BackgroundImage")));
-            this.bunifuButton1.ButtonText = "NEXT";
-            this.bunifuButton1.ButtonTextMarginLeft = 0;
-            this.bunifuTransition1.SetDecoration(this.bunifuButton1, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
-            this.bunifuButton1.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
-            this.bunifuButton1.DisabledFillColor = System.Drawing.Color.Gray;
-            this.bunifuButton1.DisabledForecolor = System.Drawing.Color.White;
-            this.bunifuButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.bunifuButton1.ForeColor = System.Drawing.Color.White;
-            this.bunifuButton1.IconLeftCursor = System.Windows.Forms.Cursors.Default;
-            this.bunifuButton1.IconPadding = 10;
-            this.bunifuButton1.IconRightCursor = System.Windows.Forms.Cursors.Default;
-            this.bunifuButton1.IdleBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(122)))), ((int)(((byte)(183)))));
-            this.bunifuButton1.IdleBorderRadius = 1;
-            this.bunifuButton1.IdleBorderThickness = 0;
-            this.bunifuButton1.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(122)))), ((int)(((byte)(183)))));
-            this.bunifuButton1.IdleIconLeftImage = null;
-            this.bunifuButton1.IdleIconRightImage = null;
-            this.bunifuButton1.Location = new System.Drawing.Point(172, 389);
-            this.bunifuButton1.Name = "bunifuButton1";
-            stateProperties1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            stateProperties1.BorderRadius = 1;
-            stateProperties1.BorderThickness = 1;
-            stateProperties1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            stateProperties1.IconLeftImage = null;
-            stateProperties1.IconRightImage = null;
-            this.bunifuButton1.onHoverState = stateProperties1;
-            this.bunifuButton1.Size = new System.Drawing.Size(170, 45);
-            this.bunifuButton1.TabIndex = 4;
-            this.bunifuButton1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.bunifuButton1.Click += new System.EventHandler(this.bunifuButton1_Click);
+            this.bunifuButtonSignInNext.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuButtonSignInNext.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuButtonSignInNext.BackgroundImage")));
+            this.bunifuButtonSignInNext.ButtonText = "NEXT";
+            this.bunifuButtonSignInNext.ButtonTextMarginLeft = 0;
+            this.bunifuTransition1.SetDecoration(this.bunifuButtonSignInNext, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.bunifuButtonSignInNext.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
+            this.bunifuButtonSignInNext.DisabledFillColor = System.Drawing.Color.Gray;
+            this.bunifuButtonSignInNext.DisabledForecolor = System.Drawing.Color.White;
+            this.bunifuButtonSignInNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.bunifuButtonSignInNext.ForeColor = System.Drawing.Color.White;
+            this.bunifuButtonSignInNext.IconLeftCursor = System.Windows.Forms.Cursors.Default;
+            this.bunifuButtonSignInNext.IconPadding = 10;
+            this.bunifuButtonSignInNext.IconRightCursor = System.Windows.Forms.Cursors.Default;
+            this.bunifuButtonSignInNext.IdleBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(122)))), ((int)(((byte)(183)))));
+            this.bunifuButtonSignInNext.IdleBorderRadius = 1;
+            this.bunifuButtonSignInNext.IdleBorderThickness = 0;
+            this.bunifuButtonSignInNext.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(122)))), ((int)(((byte)(183)))));
+            this.bunifuButtonSignInNext.IdleIconLeftImage = null;
+            this.bunifuButtonSignInNext.IdleIconRightImage = null;
+            this.bunifuButtonSignInNext.Location = new System.Drawing.Point(172, 389);
+            this.bunifuButtonSignInNext.Name = "bunifuButtonSignInNext";
+            stateProperties6.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            stateProperties6.BorderRadius = 1;
+            stateProperties6.BorderThickness = 1;
+            stateProperties6.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            stateProperties6.IconLeftImage = null;
+            stateProperties6.IconRightImage = null;
+            this.bunifuButtonSignInNext.onHoverState = stateProperties6;
+            this.bunifuButtonSignInNext.Size = new System.Drawing.Size(170, 45);
+            this.bunifuButtonSignInNext.TabIndex = 4;
+            this.bunifuButtonSignInNext.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.bunifuButtonSignInNext.Click += new System.EventHandler(this.bunifuButton1_Click);
             // 
-            // linkLabel1
+            // linkLabelSignInSignUp
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.bunifuTransition1.SetDecoration(this.linkLabel1, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
-            this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.linkLabel1.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(122)))), ((int)(((byte)(183)))));
-            this.linkLabel1.Location = new System.Drawing.Point(199, 456);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(116, 16);
-            this.linkLabel1.TabIndex = 6;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Create an account";
-            this.linkLabel1.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(122)))), ((int)(((byte)(183)))));
+            this.linkLabelSignInSignUp.AutoSize = true;
+            this.linkLabelSignInSignUp.Cursor = System.Windows.Forms.Cursors.Default;
+            this.bunifuTransition1.SetDecoration(this.linkLabelSignInSignUp, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.linkLabelSignInSignUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.linkLabelSignInSignUp.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(122)))), ((int)(((byte)(183)))));
+            this.linkLabelSignInSignUp.Location = new System.Drawing.Point(199, 456);
+            this.linkLabelSignInSignUp.Name = "linkLabelSignInSignUp";
+            this.linkLabelSignInSignUp.Size = new System.Drawing.Size(116, 16);
+            this.linkLabelSignInSignUp.TabIndex = 6;
+            this.linkLabelSignInSignUp.TabStop = true;
+            this.linkLabelSignInSignUp.Text = "Create an account";
+            this.linkLabelSignInSignUp.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(122)))), ((int)(((byte)(183)))));
+            this.linkLabelSignInSignUp.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelSignInSignUp_LinkClicked);
             // 
-            // label3
+            // labelSignInError
             // 
-            this.label3.AutoSize = true;
-            this.bunifuTransition1.SetDecoration(this.label3, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.ForeColor = System.Drawing.Color.Red;
-            this.label3.Location = new System.Drawing.Point(209, 362);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(94, 16);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Login Failed";
-            this.label3.Visible = false;
+            this.labelSignInError.AutoSize = true;
+            this.bunifuTransition1.SetDecoration(this.labelSignInError, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.labelSignInError.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelSignInError.ForeColor = System.Drawing.Color.Red;
+            this.labelSignInError.Location = new System.Drawing.Point(209, 362);
+            this.labelSignInError.Name = "labelSignInError";
+            this.labelSignInError.Size = new System.Drawing.Size(94, 16);
+            this.labelSignInError.TabIndex = 7;
+            this.labelSignInError.Text = "Login Failed";
+            this.labelSignInError.Visible = false;
             // 
             // bunifuTransition1
             // 
             this.bunifuTransition1.AnimationType = Bunifu.UI.WinForms.BunifuAnimatorNS.AnimationType.VertSlide;
             this.bunifuTransition1.Cursor = null;
-            animation1.AnimateOnlyDifferences = true;
-            animation1.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.BlindCoeff")));
-            animation1.LeafCoeff = 0F;
-            animation1.MaxTime = 5F;
-            animation1.MinTime = 3F;
-            animation1.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicCoeff")));
-            animation1.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicShift")));
-            animation1.MosaicSize = 0;
-            animation1.Padding = new System.Windows.Forms.Padding(0);
-            animation1.RotateCoeff = 0F;
-            animation1.RotateLimit = 0F;
-            animation1.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.ScaleCoeff")));
-            animation1.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.SlideCoeff")));
-            animation1.TimeCoeff = 3F;
-            animation1.TransparencyCoeff = 3F;
-            this.bunifuTransition1.DefaultAnimation = animation1;
+            animation6.AnimateOnlyDifferences = true;
+            animation6.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation6.BlindCoeff")));
+            animation6.LeafCoeff = 0F;
+            animation6.MaxTime = 5F;
+            animation6.MinTime = 3F;
+            animation6.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation6.MosaicCoeff")));
+            animation6.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation6.MosaicShift")));
+            animation6.MosaicSize = 0;
+            animation6.Padding = new System.Windows.Forms.Padding(0);
+            animation6.RotateCoeff = 0F;
+            animation6.RotateLimit = 0F;
+            animation6.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation6.ScaleCoeff")));
+            animation6.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation6.SlideCoeff")));
+            animation6.TimeCoeff = 3F;
+            animation6.TransparencyCoeff = 3F;
+            this.bunifuTransition1.DefaultAnimation = animation6;
             this.bunifuTransition1.MaxAnimationTime = 10000;
             // 
-            // Login
+            // SignIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(525, 600);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.linkLabel1);
-            this.Controls.Add(this.bunifuButton1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.bunifuTextBox2);
-            this.Controls.Add(this.bunifuTextBox1);
+            this.Controls.Add(this.labelSignInError);
+            this.Controls.Add(this.linkLabelSignInSignUp);
+            this.Controls.Add(this.bunifuButtonSignInNext);
+            this.Controls.Add(this.labelSignIn);
+            this.Controls.Add(this.bunifuTextBoxSignInPassword);
+            this.Controls.Add(this.bunifuTextBoxSignInUsername);
             this.Controls.Add(this.panel1);
             this.bunifuTransition1.SetDecoration(this, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Login";
+            this.Name = "SignIn";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SignUp";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bunifuPictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bunifuPictureBoxSignInIcon)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -357,17 +358,17 @@
         #endregion
         private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button1;
-        private Bunifu.UI.WinForms.BunifuPictureBox bunifuPictureBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button buttonSignInClose;
+        private Bunifu.UI.WinForms.BunifuPictureBox bunifuPictureBoxSignInIcon;
+        private System.Windows.Forms.Label labelSignInAppname;
+        private System.Windows.Forms.Button buttonSignInMinimize;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
-        private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox bunifuTextBox1;
-        private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox bunifuTextBox2;
-        private System.Windows.Forms.Label label2;
-        private Bunifu.UI.WinForms.BunifuButton.BunifuButton bunifuButton1;
-        private System.Windows.Forms.LinkLabel linkLabel1;
+        private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox bunifuTextBoxSignInUsername;
+        private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox bunifuTextBoxSignInPassword;
+        private System.Windows.Forms.Label labelSignIn;
+        private Bunifu.UI.WinForms.BunifuButton.BunifuButton bunifuButtonSignInNext;
+        private System.Windows.Forms.LinkLabel linkLabelSignInSignUp;
         private Bunifu.UI.WinForms.BunifuTransition bunifuTransition1;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label labelSignInError;
     }
 }
