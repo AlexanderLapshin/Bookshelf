@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3B3B2DD4-3BF9-4543-89AB-ED72841435EB}</ProjectGuid>
+    <ProjectGuid>{83DC3B07-8837-45B7-A933-56EA8D3AD9A6}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>MoneyFlow</RootNamespace>
-    <AssemblyName>MoneyFlow</AssemblyName>
+    <RootNamespace>Bookshelf</RootNamespace>
+    <AssemblyName>Bookshelf</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -37,29 +37,27 @@
     <Reference Include="Bunifu.UI.WinForms.BunifuButton">
       <HintPath>..\..\..\..\..\..\Users\ALex2\Downloads\Bunifu Ui Winform 1.10.0.0\Bunifu.UI.WinForms.BunifuButton.dll</HintPath>
     </Reference>
-    <Reference Include="Bunifu.UI.WinForms.BunifuLabel">
-      <HintPath>..\..\..\..\..\..\Users\ALex2\Downloads\Bunifu Ui Winform 1.10.0.0\Bunifu.UI.WinForms.BunifuLabel.dll</HintPath>
+    <Reference Include="Bunifu.UI.WinForms.BunifuDataGridView">
+      <HintPath>..\..\..\..\..\..\Users\ALex2\Downloads\Bunifu Ui Winform 1.10.0.0\Bunifu.UI.WinForms.BunifuDataGridView.dll</HintPath>
     </Reference>
-    <Reference Include="Bunifu.UI.WinForms.BunifuPages">
-      <HintPath>..\..\..\..\..\..\Users\ALex2\Downloads\Bunifu Ui Winform 1.10.0.0\Bunifu.UI.WinForms.BunifuPages.dll</HintPath>
-    </Reference>
-    <Reference Include="Bunifu.UI.WinForms.BunifuPictureBox">
-      <HintPath>..\..\..\..\..\..\Users\ALex2\Downloads\Bunifu Ui Winform 1.10.0.0\Bunifu.UI.WinForms.BunifuPictureBox.dll</HintPath>
-    </Reference>
-    <Reference Include="Bunifu.UI.WinForms.BunifuTextbox">
-      <HintPath>..\..\..\..\..\..\Users\ALex2\Downloads\Bunifu Ui Winform 1.10.0.0\Bunifu.UI.WinForms.BunifuTextbox.dll</HintPath>
-    </Reference>
-    <Reference Include="Bunifu.UI.WinForms.BunifuTransition">
-      <HintPath>..\..\..\..\..\..\Users\ALex2\Downloads\Bunifu Ui Winform 1.10.0.0\Bunifu.UI.WinForms.BunifuTransition.dll</HintPath>
+    <Reference Include="Bunifu.UI.WinForms.BunifuRadioButton">
+      <HintPath>..\..\..\..\..\..\Users\ALex2\Downloads\Bunifu Ui Winform 1.10.0.0\Bunifu.UI.WinForms.BunifuRadioButton.dll</HintPath>
     </Reference>
     <Reference Include="Bunifu_UI_v1.5.3">
       <HintPath>..\..\..\..\..\..\Users\ALex2\Downloads\Bunifu Ui Winform 1.10.0.0\Bunifu_UI_v1.5.3.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Design" />
     <Reference Include="System.Management" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -77,16 +75,25 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SignIn.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="SignIn.Designer.cs">
       <DependentUpon>SignIn.cs</DependentUpon>
     </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SignUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SignUp.Designer.cs">
+      <DependentUpon>SignUp.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SignIn.resx">
+      <DependentUpon>SignIn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -96,11 +103,11 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="SignIn.resx">
-      <DependentUpon>SignIn.cs</DependentUpon>
+    <EmbeddedResource Include="SignUp.resx">
+      <DependentUpon>SignUp.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -115,13 +122,15 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\320x0w.jpg" />
+    <ProjectReference Include="..\Data\Data.csproj">
+      <Project>{57d87c04-ff37-4e4e-ae5a-8db46c5dc4d5}</Project>
+      <Name>Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Models\Models.csproj">
+      <Project>{B33DDA73-B511-49EC-9247-99AE2C78A48A}</Project>
+      <Name>Models</Name>
+    </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\username.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\pas.png" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

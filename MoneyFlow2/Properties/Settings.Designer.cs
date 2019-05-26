@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MoneyFlow.Properties
+namespace Bookshelf.Properties
 {
 
 

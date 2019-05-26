@@ -1,74 +1,34 @@
-﻿using Bookshelf.Exceptions;
-using Data;
-using Data.Exceptions;
+﻿using Bunifu.UI.WinForms;
 using System;
-using System.Threading;
 using System.Windows.Forms;
 
-namespace Bookshelf
+namespace MoneyFlow
 {
     public partial class SignIn : Form
     {
         public SignIn()
         {
             InitializeComponent();
-            labelError.Hide();
         }
 
-        private UserBaseRepository _userBase = new UserBaseRepository();
-        private int userID;
-        private string username;
-
-
-        private void OpenSignUpForm()
+        private void button1_Click(object sender, EventArgs e)
         {
-            Application.Run(new SignUp());
+            this.Close();
         }
 
-        private void OpenMainForm()
+        private void button2_Click(object sender, EventArgs e)
         {
-            Application.Run(new MainForm(userID, username));
+            this.WindowState = FormWindowState.Minimized;
         }
 
-        private void linkLabelSignUp_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void bunifuButton1_Click(object sender, EventArgs e)
         {
-            Close();
-            Thread td = new Thread(OpenSignUpForm);
-            td.Start();
-        }
-
-        private void buttonSignIn_Click(object sender, EventArgs e)
-        {
-            labelError.Hide();
-            if (textBoxUsername.Text.Length >= 4 && textBoxPassword.Text.Length >= 8)
-            {
-                try
-                {
-                    userID = _userBase.SignIn(textBoxUsername.Text, textBoxPassword.Text);
-                    username = textBoxUsername.Text;
-                    if (userID != 0)
-                    {
-                        Close();
-                        Thread td = new Thread(OpenMainForm);
-                        td.Start();
-                    }
-                }
-                catch (InvalidUsernameException error)
-                {
-                    labelError.Show();
-                    labelError.Text = error.Message;
-                }
-                catch (InvalidPasswordException error)
-                {
-                    labelError.Show();
-                    labelError.Text = error.Message;
-                }
-            }
-            else
-            {
-                labelError.Show();
-                labelError.Text = "Incorrect input";
-            }
+            bunifuTransition1.HideSync(label3, true, Bunifu.UI.WinForms.BunifuAnimatorNS.Animation.Transparent);
+            BunifuTransition transition = new BunifuTransition();
+            //transition.TimeStep = 0.001F;
+            transition.Interval = 10;
+            //bunifuTransition1.MaxAnimationTime = 100000;
+            bunifuTransition1.Show(label3, false, Bunifu.UI.WinForms.BunifuAnimatorNS.Animation.Transparent);
         }
     }
 }
