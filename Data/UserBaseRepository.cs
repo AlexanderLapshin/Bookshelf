@@ -12,7 +12,7 @@ namespace Data
         private MoneyFlowDbContext moneyFlowDbContext = new MoneyFlowDbContext();
 
 
-        public int SignIn(string username, string password)
+        public User SignIn(string username, string password)
         {
             /* Fetch the stored value */
             User user = moneyFlowDbContext.Users
@@ -41,15 +41,12 @@ namespace Data
                     }
                 }
 
-                return user.Id;
+                return user;
             }
             throw new InvalidUsernameException("Login Failed");
         }
 
-        //!!
-        // MAKE VERIFICATION IF USER WItH THIS USERNAME ALREADY EXIST!!!
-        //!!
-        public int SignUp(string username, string password, string firstName, string lastName)
+        public User SignUp(string username, string password, string firstName, string lastName)
         {
             User user = moneyFlowDbContext.Users
                             .Where(u => u.Username == username)
@@ -91,9 +88,23 @@ namespace Data
                 moneyFlowDbContext.Transactions.Add(initialTransaction);
                 moneyFlowDbContext.SaveChanges();
 
-                return newUser.Id;
+                return newUser;
             }
             throw new InvalidUsernameException("This username already exists");
+        }
+
+        public bool isUsernameFree(string username)
+        {
+            User user = moneyFlowDbContext.Users
+                .Where(u => u.Username == username)
+                .FirstOrDefault();
+
+            if (user == null)
+            {
+                return true;
+            }
+
+            return false;
         }
 
         public double GetBalance(int userId)

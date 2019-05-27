@@ -1,6 +1,7 @@
 ﻿using Bookshelf.Exceptions;
 using Data;
 using Data.Exceptions;
+using Models;
 using System;
 using System.Threading;
 using System.Windows.Forms;
@@ -10,7 +11,7 @@ namespace MoneyFlow
     public partial class SignIn : Form
     {
         private UserBaseRepository _userBase = new UserBaseRepository();
-        private int userID;
+        private User user;
         private string username;
 
         public SignIn()
@@ -25,7 +26,7 @@ namespace MoneyFlow
 
         private void OpenMainForm()
         {
-            Application.Run(new MainForm(userID));
+            Application.Run(new MainForm(user));
         }
 
         private void buttonSignInClose_Click(object sender, EventArgs e)
@@ -46,9 +47,9 @@ namespace MoneyFlow
             {
                 try
                 {
-                    userID = _userBase.SignIn(bunifuTextBoxSignInUsername.Text, bunifuTextBoxSignInPassword.Text);
+                    user = _userBase.SignIn(bunifuTextBoxSignInUsername.Text, bunifuTextBoxSignInPassword.Text);
                     username = bunifuTextBoxSignInUsername.Text;
-                    if (userID != 0)
+                    if (user != null)
                     {
                         Close();
                         Thread td = new Thread(OpenMainForm);

@@ -37,6 +37,9 @@
     <Reference Include="Bunifu.UI.WinForms.BunifuButton">
       <HintPath>..\..\..\..\..\..\Users\ALex2\Downloads\Bunifu Ui Winform 1.10.0.0\Bunifu.UI.WinForms.BunifuButton.dll</HintPath>
     </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuDataGridView">
+      <HintPath>..\..\..\..\..\..\Users\ALex2\Downloads\Bunifu Ui Winform 1.10.0.0\Bunifu.UI.WinForms.BunifuDataGridView.dll</HintPath>
+    </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuLabel">
       <HintPath>..\..\..\..\..\..\Users\ALex2\Downloads\Bunifu Ui Winform 1.10.0.0\Bunifu.UI.WinForms.BunifuLabel.dll</HintPath>
     </Reference>
@@ -67,6 +70,7 @@
     <Reference Include="System.Design" />
     <Reference Include="System.Management" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -144,6 +148,10 @@
     <ProjectReference Include="..\Data\Data.csproj">
       <Project>{57D87C04-FF37-4E4E-AE5A-8DB46C5DC4D5}</Project>
       <Name>Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Models\Models.csproj">
+      <Project>{B33DDA73-B511-49EC-9247-99AE2C78A48A}</Project>
+      <Name>Models</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

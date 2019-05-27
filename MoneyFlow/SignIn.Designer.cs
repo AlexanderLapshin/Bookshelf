@@ -121,6 +121,7 @@
             this.buttonSignInClose.Cursor = System.Windows.Forms.Cursors.Default;
             this.bunifuTransition1.SetDecoration(this.buttonSignInClose, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
             this.buttonSignInClose.Dock = System.Windows.Forms.DockStyle.Right;
+            this.buttonSignInClose.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(28)))), ((int)(((byte)(31)))));
             this.buttonSignInClose.FlatAppearance.BorderSize = 0;
             this.buttonSignInClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.buttonSignInClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
@@ -317,7 +318,7 @@
             animation1.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicCoeff")));
             animation1.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicShift")));
             animation1.MosaicSize = 0;
-            animation1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            animation1.Padding = new System.Windows.Forms.Padding(0);
             animation1.RotateCoeff = 0F;
             animation1.RotateLimit = 0F;
             animation1.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.ScaleCoeff")));

@@ -1,5 +1,6 @@
 ﻿using Data;
 using Data.Exceptions;
+using Models;
 using System;
 using System.Text.RegularExpressions;
 using System.Threading;
@@ -10,9 +11,9 @@ namespace MoneyFlow
     public partial class SignUp : Form
     {
         private UserBaseRepository _userBase = new UserBaseRepository();
-        private int userId;
-        const string usernameRegexPattern = @"^[a-zA-Z][a-zA-Z0-9-_\.]{4,20}$";
-        const string passwordRegexPattern = @"^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,64})";
+        private User user;
+        const string usernameRegexPattern = @"^[a-zA-Z][a-zA-Z0-9-_\.]{3,20}$";
+        const string passwordRegexPattern = @"^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{5,64})";
 
         public SignUp()
         {
@@ -27,7 +28,7 @@ namespace MoneyFlow
 
         private void OpenMainForm()
         {
-            Application.Run(new MainForm(userId));
+            Application.Run(new MainForm(user));
         }
 
         private void buttonSignUpClose_Click(object sender, EventArgs e)
@@ -52,7 +53,15 @@ namespace MoneyFlow
                     {
                         if (bunifuTextBoxSignUpPassword.Text == bunifuTextBoxSignUpPassword2.Text)
                         {
-                            bunifuPages1.SetPage(1);
+                            if (_userBase.isUsernameFree(bunifuTextBoxSignUpUsername.Text))
+                            {
+                                bunifuPages1.SetPage(1);
+                            }
+                            else
+                            {
+                                labelSignUpError.Text = "Username already exists";
+                                bunifuTransition1.Show(labelSignUpError, false, Bunifu.UI.WinForms.BunifuAnimatorNS.Animation.Transparent);
+                            }
                         }
                         else
                         {
@@ -92,7 +101,7 @@ namespace MoneyFlow
             {
                 try
                 {
-                    userId = _userBase.SignUp(bunifuTextBoxSignUpUsername.Text, bunifuTextBoxSignUpPassword.Text, bunifuTextBoxSignUpFirstName.Text, bunifuTextBoxSignUpLastName.Text);
+                    user = _userBase.SignUp(bunifuTextBoxSignUpUsername.Text, bunifuTextBoxSignUpPassword.Text, bunifuTextBoxSignUpFirstName.Text, bunifuTextBoxSignUpLastName.Text);
                     Close();
                     Thread td = new Thread(OpenMainForm);
                     td.Start();
