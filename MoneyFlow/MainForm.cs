@@ -153,15 +153,26 @@ namespace MoneyFlow
                     bunifuTextBoxMainFormTransactionNote.ResetText();
 
                     user.Balance += transactionSum;
+                    try
+                    {
+                        Transaction transaction = _transactionsBase.AddTransaction(transactionSum, user.Id, transactionType, note, user.Balance);
 
-                    Transaction transaction = _transactionsBase.AddTransaction(transactionSum, user.Id, transactionType, note, user.Balance);
-                    allUserTransactions.Add(transaction);
-                    periodTransactions.Add(transaction);
 
-                    bunifuDataGridViewMainFormTransactions.Rows.Add(transaction.Sum, transaction.Type, transaction.Date, transaction.Note);
-                    bunifuDataGridViewMainFormTransactions.FirstDisplayedScrollingRowIndex = bunifuDataGridViewMainFormTransactions.RowCount - 1;
+                        allUserTransactions.Add(transaction);
+                        periodTransactions.Add(transaction);
 
-                    chartMainFormBalance.Series[0].Points.AddY(transaction.CurrentBalance);
+                        bunifuDataGridViewMainFormTransactions.Rows.Add(transaction.Sum, transaction.Type, transaction.Date, transaction.Note);
+                        bunifuDataGridViewMainFormTransactions.FirstDisplayedScrollingRowIndex = bunifuDataGridViewMainFormTransactions.RowCount - 1;
+
+                        chartMainFormBalance.Series[0].Points.AddY(transaction.CurrentBalance);
+                    }
+                    catch (ArgumentException exception)
+                    {
+                        MessageBox.Show(exception.Message);
+                        this.Close();
+                        Thread td = new Thread(OpenSignInForm);
+                        td.Start();
+                    }
                     if (comboBoxMainFormChartType.SelectedIndex == 1)
                     {
                         DrawIncomeExpnsesChart(periodTransactions);

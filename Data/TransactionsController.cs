@@ -106,7 +106,7 @@ namespace Data
                 return transaction;
             }
 
-            throw new ArgumentException();
+            throw new ArgumentException("Something went wrong. Please relogin.");
 
         }
     }
