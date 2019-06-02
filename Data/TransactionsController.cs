@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Data
 {
-    public class TransactionsBaseRepository
+    public class TransactionsController
     {
         private MoneyFlowDbContext moneyFlowDbContext = new MoneyFlowDbContext();
 

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Bookshelf.Exceptions
+namespace Data.Exceptions
 {
     public class InvalidPasswordException : Exception
     {

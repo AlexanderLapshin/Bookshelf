@@ -10,7 +10,7 @@ namespace MoneyFlow
 {
     public partial class SignUp : Form
     {
-        private UserBaseRepository _userBase = new UserBaseRepository();
+        private UserController _userBase = new UserController();
         private User user;
         const string usernameRegexPattern = @"^[a-zA-Z][a-zA-Z0-9-_\.]{3,20}$";
         const string passwordRegexPattern = @"^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{5,64})";

@@ -1,5 +1,4 @@
-﻿using Bookshelf.Exceptions;
-using Data.Exceptions;
+﻿using Data.Exceptions;
 using Models;
 using System;
 using System.Linq;
@@ -7,7 +6,7 @@ using System.Security.Cryptography;
 
 namespace Data
 {
-    public class UserBaseRepository
+    public class UserController
     {
         private MoneyFlowDbContext moneyFlowDbContext = new MoneyFlowDbContext();
 

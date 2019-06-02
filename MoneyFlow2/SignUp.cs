@@ -15,7 +15,7 @@ namespace Bookshelf
             labelError.Hide();
         }
 
-        private UserBaseRepository _userBase = new UserBaseRepository();
+        private UserController _userBase = new UserController();
         private int userId;
         private string username;
         const string usernameRegexPattern = @"^[a-zA-Z][a-zA-Z0-9-_\.]{4,20}$";

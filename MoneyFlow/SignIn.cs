@@ -1,5 +1,4 @@
-﻿using Bookshelf.Exceptions;
-using Data;
+﻿using Data;
 using Data.Exceptions;
 using Models;
 using System;
@@ -10,7 +9,7 @@ namespace MoneyFlow
 {
     public partial class SignIn : Form
     {
-        private UserBaseRepository _userBase = new UserBaseRepository();
+        private UserController _userBase = new UserController();
         private User user;
         private string username;
 

@@ -14,8 +14,8 @@ namespace MoneyFlow
 
         // Balance control variables
         private User user;
-        private UserBaseRepository _userBase = new UserBaseRepository();
-        private TransactionsBaseRepository _transactionsBase = new TransactionsBaseRepository();
+        private UserController _userBase = new UserController();
+        private TransactionsController _transactionsBase = new TransactionsController();
         private List<Transaction> allUserTransactions;
         private List<Transaction> periodTransactions;
         private readonly string[] ExpenseTypesArray = new string[10] { "Goods", "Restaurant", "Leisure", "Transport", "Health", "Gifts", "Family", "Clothes", "Food", "Other" };

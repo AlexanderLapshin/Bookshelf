@@ -1,5 +1,4 @@
-﻿using Bookshelf.Exceptions;
-using Data;
+﻿using Data;
 using Data.Exceptions;
 using System;
 using System.Threading;
@@ -15,7 +14,7 @@ namespace Bookshelf
             labelError.Hide();
         }
 
-        private UserBaseRepository _userBase = new UserBaseRepository();
+        private UserController _userBase = new UserController();
         private int userID;
         private string username;
 
