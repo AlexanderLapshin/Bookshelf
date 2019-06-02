@@ -1,8 +1,10 @@
 ﻿using Data;
 using Models;
+using MoneyFlow.Logic;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace MoneyFlow
@@ -28,6 +30,11 @@ namespace MoneyFlow
         private bool depositePercentsOnDeposite;
         private double sumAfterDeposite;
 
+        // Menu
+        Color tabColor = Color.FromArgb(20, 30, 48);
+        Color activeTabColor = Color.FromArgb(36, 59, 85);
+
+
         public MainForm(User user)
         {
             InitializeComponent();
@@ -36,6 +43,18 @@ namespace MoneyFlow
             this.user = user;
             allUserTransactions = _transactionsBase.GetAllUserTransactions(user.Id);
             periodTransactions = allUserTransactions;
+
+            // Calculator initialize
+            depositeMonths = (int)numericUpDownDepositMonths.Value;
+            depositePercents = (double)numericUpDownDepositPercents.Value;
+            depositeSum = (int)numericUpDownDepositSum.Value;
+            depositeRepeats = (int)numericUpDownDepositExtension.Value;
+            depositePercentsOnDeposite = bunifuToggleSwitchDepositOnDeposit.Value;
+        }
+
+        private void OpenSignInForm()
+        {
+            Application.Run(new SignIn());
         }
 
         private void buttonMainFormMinimize_Click(object sender, EventArgs e)
@@ -78,7 +97,7 @@ namespace MoneyFlow
             groupBoxMainFormBalance.Text = user.FirstName + " " + user.LastName;
             labelMainFormBalance.Text = user.Balance.ToString();
 
-            Color textColor = (user.Balance >= 0) ? Color.Green : Color.Red;
+            Color textColor = (user.Balance >= 0) ? Color.LightGreen : Color.Red;
             labelMainFormBalance.ForeColor = textColor;
             labelMainFormBalanceText.ForeColor = textColor;
 
@@ -94,6 +113,31 @@ namespace MoneyFlow
             // Graphic settings
             comboBoxMainFormChartType.SelectedIndex = 0;
             comboBoxMainFormPeriod.SelectedIndex = comboBoxMainFormPeriod.Items.Count - 1;
+
+            // Calculator chart setup
+            sumAfterDeposite = Deposit.getDepositValue(depositeMonths, depositePercents, depositeSum, depositeRepeats, depositePercentsOnDeposite);
+            drawDepositeChart(depositeSum, sumAfterDeposite);
+        }
+
+        private void buttonMainFormBalanceTab_Click(object sender, EventArgs e)
+        {
+            buttonMainFormBalanceTab.BackColor = activeTabColor;
+            buttonMainFormDepositTab.BackColor = tabColor;
+            bunifuPages1.SetPage(0);
+        }
+
+        private void buttonMainFormDepositTab_Click(object sender, EventArgs e)
+        {
+            buttonMainFormDepositTab.BackColor = activeTabColor;
+            buttonMainFormBalanceTab.BackColor = tabColor;
+            bunifuPages1.SetPage(1);
+        }
+
+        private void buttonMainFormLogout_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Thread td = new Thread(OpenSignInForm);
+            td.Start();
         }
 
         private void bunifuButtonMainFormAddTransaction_Click(object sender, EventArgs e)
@@ -105,7 +149,8 @@ namespace MoneyFlow
                 if (comboBoxMainFormTransactionType.SelectedItem != null)
                 {
                     string transactionType = comboBoxMainFormTransactionType.SelectedItem.ToString();
-                    string note = (bunifuTextBoxMainFormTransactionNote.Text == "Notes") ? " " : bunifuTextBoxMainFormTransactionNote.Text;
+                    string note = bunifuTextBoxMainFormTransactionNote.Text;
+                    bunifuTextBoxMainFormTransactionNote.ResetText();
 
                     user.Balance += transactionSum;
 
@@ -114,6 +159,8 @@ namespace MoneyFlow
                     periodTransactions.Add(transaction);
 
                     bunifuDataGridViewMainFormTransactions.Rows.Add(transaction.Sum, transaction.Type, transaction.Date, transaction.Note);
+                    bunifuDataGridViewMainFormTransactions.FirstDisplayedScrollingRowIndex = bunifuDataGridViewMainFormTransactions.RowCount - 1;
+
                     chartMainFormBalance.Series[0].Points.AddY(transaction.CurrentBalance);
                     if (comboBoxMainFormChartType.SelectedIndex == 1)
                     {
@@ -126,7 +173,7 @@ namespace MoneyFlow
 
                     _userBase.SetBalance(user.Id, user.Balance);
                     labelMainFormBalance.Text = user.Balance.ToString();
-                    labelMainFormBalance.ForeColor = labelMainFormBalanceText.ForeColor = (user.Balance >= 0) ? Color.Green : Color.Red;
+                    labelMainFormBalance.ForeColor = labelMainFormBalanceText.ForeColor = (user.Balance >= 0) ? Color.LightGreen : Color.Red;
                 }
                 else
                 {
@@ -186,7 +233,7 @@ namespace MoneyFlow
 
                 // All time
                 case 4:
-                    periodTransactions = allUserTransactions;
+                    periodTransactions = new List<Transaction>(allUserTransactions);
                     break;
             }
             DrawChart();
@@ -367,5 +414,100 @@ namespace MoneyFlow
             }
         }
 
+
+        // Calculator code     
+        private void drawDepositeChart(double sum, double sumAfterDeposite)
+        {
+            chartDeposit.Series[0].Points.Clear();
+            chartDeposit.Series[0].Points.AddXY("Invest", sum);
+            chartDeposit.Series[0].Points[0].Color = Color.Yellow;
+            chartDeposit.Series[0].Points.AddXY("Receive", sumAfterDeposite);
+            chartDeposit.Series[0].Points[1].Color = Color.Green;
+        }
+
+        private void trackBarDepositMonths_Scroll(object sender, EventArgs e)
+        {
+            depositeMonths = trackBarDepositMonths.Value;
+            numericUpDownDepositMonths.Value = depositeMonths;
+
+            sumAfterDeposite = Deposit.getDepositValue(depositeMonths, depositePercents, depositeSum, depositeRepeats, depositePercentsOnDeposite);
+
+            drawDepositeChart(depositeSum, sumAfterDeposite);
+        }
+
+        private void numericUpDownDepositMonths_ValueChanged(object sender, EventArgs e)
+        {
+            depositeMonths = (int)numericUpDownDepositMonths.Value;
+            trackBarDepositMonths.Value = depositeMonths;
+
+            sumAfterDeposite = Deposit.getDepositValue(depositeMonths, depositePercents, depositeSum, depositeRepeats, depositePercentsOnDeposite);
+
+            drawDepositeChart(depositeSum, sumAfterDeposite);
+        }
+
+        private void trackBarDepositSum_Scroll(object sender, EventArgs e)
+        {
+            depositeSum = trackBarDepositSum.Value;
+            numericUpDownDepositSum.Value = depositeSum;
+
+            sumAfterDeposite = Deposit.getDepositValue(depositeMonths, depositePercents, depositeSum, depositeRepeats, depositePercentsOnDeposite);
+
+            drawDepositeChart(depositeSum, sumAfterDeposite);
+        }
+
+        private void numericUpDownDepositSum_ValueChanged(object sender, EventArgs e)
+        {
+            depositeSum = (int)numericUpDownDepositSum.Value;
+            trackBarDepositSum.Value = depositeSum;
+
+            sumAfterDeposite = Deposit.getDepositValue(depositeMonths, depositePercents, depositeSum, depositeRepeats, depositePercentsOnDeposite);
+
+            drawDepositeChart(depositeSum, sumAfterDeposite);
+        }
+
+        private void trackBarDepositExtension_Scroll(object sender, EventArgs e)
+        {
+            depositeRepeats = trackBarDepositExtension.Value;
+            numericUpDownDepositExtension.Value = depositeRepeats;
+
+            sumAfterDeposite = Deposit.getDepositValue(depositeMonths, depositePercents, depositeSum, depositeRepeats, depositePercentsOnDeposite);
+
+            drawDepositeChart(depositeSum, sumAfterDeposite);
+        }
+
+        private void numericUpDownDepositExtension_ValueChanged(object sender, EventArgs e)
+        {
+            depositeRepeats = (int)numericUpDownDepositExtension.Value;
+            trackBarDepositExtension.Value = depositeRepeats;
+
+            sumAfterDeposite = Deposit.getDepositValue(depositeMonths, depositePercents, depositeSum, depositeRepeats, depositePercentsOnDeposite);
+
+            drawDepositeChart(depositeSum, sumAfterDeposite);
+        }
+
+        private void numericUpDownDepositPercents_ValueChanged(object sender, EventArgs e)
+        {
+            depositePercents = (int)numericUpDownDepositPercents.Value;
+
+            sumAfterDeposite = Deposit.getDepositValue(depositeMonths, depositePercents, depositeSum, depositeRepeats, depositePercentsOnDeposite);
+
+            drawDepositeChart(depositeSum, sumAfterDeposite);
+        }
+
+        private void bunifuToggleSwitchDepositOnDeposit_OnValuechange(object sender, EventArgs e)
+        {
+            if (bunifuToggleSwitchDepositOnDeposit.Value)
+            {
+                depositePercentsOnDeposite = true;
+            }
+            else
+            {
+                depositePercentsOnDeposite = false;
+            }
+
+            sumAfterDeposite = Deposit.getDepositValue(depositeMonths, depositePercents, depositeSum, depositeRepeats, depositePercentsOnDeposite);
+
+            drawDepositeChart(depositeSum, sumAfterDeposite);
+        }
     }
 }

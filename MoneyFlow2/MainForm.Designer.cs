@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
@@ -75,6 +76,7 @@
             this.trackBarPercents = new System.Windows.Forms.TrackBar();
             this.trackBarMonths = new System.Windows.Forms.TrackBar();
             this.chartCalculator = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -149,7 +151,7 @@
             this.splitContainer1.Panel2.Controls.Add(this.groupBoxGraphic);
             this.splitContainer1.Panel2.Controls.Add(this.chartBalance);
             this.splitContainer1.Size = new System.Drawing.Size(947, 537);
-            this.splitContainer1.SplitterDistance = 402;
+            this.splitContainer1.SplitterDistance = 697;
             this.splitContainer1.TabIndex = 0;
             // 
             // groupBoxUsername
@@ -162,7 +164,7 @@
             this.groupBoxUsername.ForeColor = System.Drawing.Color.RoyalBlue;
             this.groupBoxUsername.Location = new System.Drawing.Point(0, 0);
             this.groupBoxUsername.Name = "groupBoxUsername";
-            this.groupBoxUsername.Size = new System.Drawing.Size(402, 241);
+            this.groupBoxUsername.Size = new System.Drawing.Size(697, 241);
             this.groupBoxUsername.TabIndex = 1;
             this.groupBoxUsername.TabStop = false;
             this.groupBoxUsername.Text = "Username";
@@ -178,7 +180,7 @@
             this.groupBoxTransaction.ForeColor = System.Drawing.Color.RoyalBlue;
             this.groupBoxTransaction.Location = new System.Drawing.Point(3, 75);
             this.groupBoxTransaction.Name = "groupBoxTransaction";
-            this.groupBoxTransaction.Size = new System.Drawing.Size(396, 163);
+            this.groupBoxTransaction.Size = new System.Drawing.Size(691, 163);
             this.groupBoxTransaction.TabIndex = 7;
             this.groupBoxTransaction.TabStop = false;
             this.groupBoxTransaction.Text = "Transaction";
@@ -284,7 +286,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(402, 290);
+            this.dataGridView1.Size = new System.Drawing.Size(697, 290);
             this.dataGridView1.TabIndex = 0;
             // 
             // chartExpenses
@@ -319,7 +321,7 @@
             this.groupBoxGraphic.ForeColor = System.Drawing.Color.RoyalBlue;
             this.groupBoxGraphic.Location = new System.Drawing.Point(0, 453);
             this.groupBoxGraphic.Name = "groupBoxGraphic";
-            this.groupBoxGraphic.Size = new System.Drawing.Size(541, 84);
+            this.groupBoxGraphic.Size = new System.Drawing.Size(246, 84);
             this.groupBoxGraphic.TabIndex = 1;
             this.groupBoxGraphic.TabStop = false;
             this.groupBoxGraphic.Text = "Graphic";
@@ -368,7 +370,7 @@
             series2.Legend = "Legend1";
             series2.Name = "Balance";
             this.chartBalance.Series.Add(series2);
-            this.chartBalance.Size = new System.Drawing.Size(541, 460);
+            this.chartBalance.Size = new System.Drawing.Size(246, 460);
             this.chartBalance.TabIndex = 0;
             this.chartBalance.Text = "chart1";
             // 
@@ -649,12 +651,18 @@
             this.chartCalculator.TabIndex = 0;
             this.chartCalculator.Text = "chart1";
             // 
+            // bunifuElipse1
+            // 
+            this.bunifuElipse1.ElipseRadius = 5;
+            this.bunifuElipse1.TargetControl = this;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(961, 569);
             this.Controls.Add(this.tabControl1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "MainForm";
@@ -740,5 +748,6 @@
         private System.Windows.Forms.NumericUpDown numericUpDownExtension;
         private System.Windows.Forms.TrackBar trackBarExtension;
         private System.Windows.Forms.NumericUpDown numericUpDownSum;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
     }
 }

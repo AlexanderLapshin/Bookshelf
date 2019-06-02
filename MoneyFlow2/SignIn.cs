@@ -44,7 +44,7 @@ namespace Bookshelf
             {
                 try
                 {
-                    userID = _userBase.SignIn(textBoxUsername.Text, textBoxPassword.Text);
+                    //userID = _userBase.SignIn(textBoxUsername.Text, textBoxPassword.Text);
                     username = textBoxUsername.Text;
                     if (userID != 0)
                     {

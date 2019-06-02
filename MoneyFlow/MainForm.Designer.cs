@@ -42,6 +42,12 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            Bunifu.ToggleSwitch.ToggleState toggleState1 = new Bunifu.ToggleSwitch.ToggleState();
+            Bunifu.ToggleSwitch.ToggleState toggleState2 = new Bunifu.ToggleSwitch.ToggleState();
+            Bunifu.ToggleSwitch.ToggleState toggleState3 = new Bunifu.ToggleSwitch.ToggleState();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonMainFormMinimize = new System.Windows.Forms.Button();
@@ -50,15 +56,14 @@
             this.buttonMainFormClose = new System.Windows.Forms.Button();
             this.bunifuTransition1 = new Bunifu.UI.WinForms.BunifuTransition(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonMainFormLogout = new System.Windows.Forms.Button();
+            this.buttonMainFormDepositTab = new System.Windows.Forms.Button();
+            this.buttonMainFormBalanceTab = new System.Windows.Forms.Button();
             this.bunifuPages1 = new Bunifu.UI.WinForms.BunifuPages();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.bunifuDataGridViewMainFormTransactions = new Bunifu.UI.WinForms.BunifuDataGridView();
             this.groupBoxMainFormTransaction = new System.Windows.Forms.GroupBox();
-            this.bunifuTextBoxMainFormTransactionNote = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
             this.bunifuButtonMainFormAddTransaction = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.comboBoxMainFormTransactionType = new System.Windows.Forms.ComboBox();
             this.numericUpDownMainFormTransactionSum = new System.Windows.Forms.NumericUpDown();
@@ -71,7 +76,26 @@
             this.comboBoxMainFormPeriod = new System.Windows.Forms.ComboBox();
             this.comboBoxMainFormChartType = new System.Windows.Forms.ComboBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.groupBoxDepositExtensions = new System.Windows.Forms.GroupBox();
+            this.numericUpDownDepositExtension = new System.Windows.Forms.NumericUpDown();
+            this.trackBarDepositExtension = new System.Windows.Forms.TrackBar();
+            this.groupBoxDepositPercents = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.bunifuToggleSwitchDepositOnDeposit = new Bunifu.ToggleSwitch.BunifuToggleSwitch();
+            this.labelDepositPercents = new System.Windows.Forms.Label();
+            this.numericUpDownDepositPercents = new System.Windows.Forms.NumericUpDown();
+            this.groupBoxDepositSum = new System.Windows.Forms.GroupBox();
+            this.numericUpDownDepositSum = new System.Windows.Forms.NumericUpDown();
+            this.trackBarDepositSum = new System.Windows.Forms.TrackBar();
+            this.groupBoxDepositRate = new System.Windows.Forms.GroupBox();
+            this.labelDepositMonths = new System.Windows.Forms.Label();
+            this.numericUpDownDepositMonths = new System.Windows.Forms.NumericUpDown();
+            this.trackBarDepositMonths = new System.Windows.Forms.TrackBar();
+            this.chartDeposit = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.bunifuTextBoxMainFormTransactionNote = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuPictureBoxMainFormIcon)).BeginInit();
             this.panel2.SuspendLayout();
@@ -88,6 +112,23 @@
             ((System.ComponentModel.ISupportInitialize)(this.chartMainFormExpenses)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartMainFormBalance)).BeginInit();
             this.groupBoxMainFormChart.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
+            this.splitContainer2.Panel1.SuspendLayout();
+            this.splitContainer2.Panel2.SuspendLayout();
+            this.splitContainer2.SuspendLayout();
+            this.groupBoxDepositExtensions.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDepositExtension)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarDepositExtension)).BeginInit();
+            this.groupBoxDepositPercents.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDepositPercents)).BeginInit();
+            this.groupBoxDepositSum.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDepositSum)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarDepositSum)).BeginInit();
+            this.groupBoxDepositRate.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDepositMonths)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarDepositMonths)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartDeposit)).BeginInit();
             this.SuspendLayout();
             // 
             // bunifuDragControl1
@@ -200,9 +241,9 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.button3);
-            this.panel2.Controls.Add(this.button2);
-            this.panel2.Controls.Add(this.button1);
+            this.panel2.Controls.Add(this.buttonMainFormLogout);
+            this.panel2.Controls.Add(this.buttonMainFormDepositTab);
+            this.panel2.Controls.Add(this.buttonMainFormBalanceTab);
             this.bunifuTransition1.SetDecoration(this.panel2, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 27);
@@ -210,48 +251,56 @@
             this.panel2.Size = new System.Drawing.Size(1050, 25);
             this.panel2.TabIndex = 2;
             // 
-            // button3
+            // buttonMainFormLogout
             // 
-            this.bunifuTransition1.SetDecoration(this.button3, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
-            this.button3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.button3.Location = new System.Drawing.Point(975, 0);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 25);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
+            this.buttonMainFormLogout.BackColor = System.Drawing.Color.Red;
+            this.bunifuTransition1.SetDecoration(this.buttonMainFormLogout, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.buttonMainFormLogout.Dock = System.Windows.Forms.DockStyle.Right;
+            this.buttonMainFormLogout.FlatAppearance.BorderSize = 0;
+            this.buttonMainFormLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonMainFormLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonMainFormLogout.ForeColor = System.Drawing.Color.White;
+            this.buttonMainFormLogout.Location = new System.Drawing.Point(975, 0);
+            this.buttonMainFormLogout.Name = "buttonMainFormLogout";
+            this.buttonMainFormLogout.Size = new System.Drawing.Size(75, 25);
+            this.buttonMainFormLogout.TabIndex = 2;
+            this.buttonMainFormLogout.Text = "Log out";
+            this.buttonMainFormLogout.UseVisualStyleBackColor = false;
+            this.buttonMainFormLogout.Click += new System.EventHandler(this.buttonMainFormLogout_Click);
             // 
-            // button2
+            // buttonMainFormDepositTab
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(30)))), ((int)(((byte)(48)))));
-            this.bunifuTransition1.SetDecoration(this.button2, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
-            this.button2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(75, 0);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 25);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Deposit";
-            this.button2.UseVisualStyleBackColor = false;
+            this.buttonMainFormDepositTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(30)))), ((int)(((byte)(48)))));
+            this.bunifuTransition1.SetDecoration(this.buttonMainFormDepositTab, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.buttonMainFormDepositTab.Dock = System.Windows.Forms.DockStyle.Left;
+            this.buttonMainFormDepositTab.FlatAppearance.BorderSize = 0;
+            this.buttonMainFormDepositTab.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonMainFormDepositTab.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonMainFormDepositTab.ForeColor = System.Drawing.Color.White;
+            this.buttonMainFormDepositTab.Location = new System.Drawing.Point(75, 0);
+            this.buttonMainFormDepositTab.Name = "buttonMainFormDepositTab";
+            this.buttonMainFormDepositTab.Size = new System.Drawing.Size(75, 25);
+            this.buttonMainFormDepositTab.TabIndex = 1;
+            this.buttonMainFormDepositTab.Text = "Deposit";
+            this.buttonMainFormDepositTab.UseVisualStyleBackColor = false;
+            this.buttonMainFormDepositTab.Click += new System.EventHandler(this.buttonMainFormDepositTab_Click);
             // 
-            // button1
+            // buttonMainFormBalanceTab
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(59)))), ((int)(((byte)(85)))));
-            this.bunifuTransition1.SetDecoration(this.button1, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
-            this.button1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(0, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 25);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Balance";
-            this.button1.UseVisualStyleBackColor = false;
+            this.buttonMainFormBalanceTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(59)))), ((int)(((byte)(85)))));
+            this.bunifuTransition1.SetDecoration(this.buttonMainFormBalanceTab, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.buttonMainFormBalanceTab.Dock = System.Windows.Forms.DockStyle.Left;
+            this.buttonMainFormBalanceTab.FlatAppearance.BorderSize = 0;
+            this.buttonMainFormBalanceTab.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonMainFormBalanceTab.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonMainFormBalanceTab.ForeColor = System.Drawing.Color.White;
+            this.buttonMainFormBalanceTab.Location = new System.Drawing.Point(0, 0);
+            this.buttonMainFormBalanceTab.Name = "buttonMainFormBalanceTab";
+            this.buttonMainFormBalanceTab.Size = new System.Drawing.Size(75, 25);
+            this.buttonMainFormBalanceTab.TabIndex = 0;
+            this.buttonMainFormBalanceTab.Text = "Balance";
+            this.buttonMainFormBalanceTab.UseVisualStyleBackColor = false;
+            this.buttonMainFormBalanceTab.Click += new System.EventHandler(this.buttonMainFormBalanceTab_Click);
             // 
             // bunifuPages1
             // 
@@ -283,6 +332,7 @@
             // 
             this.bunifuTransition1.SetDecoration(this.splitContainer1, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.IsSplitterFixed = true;
             this.splitContainer1.Location = new System.Drawing.Point(3, 3);
             this.splitContainer1.Name = "splitContainer1";
             // 
@@ -300,7 +350,7 @@
             this.splitContainer1.Panel2.Controls.Add(this.groupBoxMainFormChart);
             this.bunifuTransition1.SetDecoration(this.splitContainer1.Panel2, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
             this.splitContainer1.Size = new System.Drawing.Size(1036, 564);
-            this.splitContainer1.SplitterDistance = 402;
+            this.splitContainer1.SplitterDistance = 400;
             this.splitContainer1.TabIndex = 0;
             // 
             // bunifuDataGridViewMainFormTransactions
@@ -359,7 +409,7 @@
             this.bunifuDataGridViewMainFormTransactions.RowHeadersVisible = false;
             this.bunifuDataGridViewMainFormTransactions.RowTemplate.Height = 40;
             this.bunifuDataGridViewMainFormTransactions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.bunifuDataGridViewMainFormTransactions.Size = new System.Drawing.Size(402, 335);
+            this.bunifuDataGridViewMainFormTransactions.Size = new System.Drawing.Size(400, 348);
             this.bunifuDataGridViewMainFormTransactions.TabIndex = 2;
             this.bunifuDataGridViewMainFormTransactions.Theme = Bunifu.UI.WinForms.BunifuDataGridView.PresetThemes.Dark;
             // 
@@ -375,54 +425,10 @@
             this.groupBoxMainFormTransaction.ForeColor = System.Drawing.Color.White;
             this.groupBoxMainFormTransaction.Location = new System.Drawing.Point(0, 87);
             this.groupBoxMainFormTransaction.Name = "groupBoxMainFormTransaction";
-            this.groupBoxMainFormTransaction.Size = new System.Drawing.Size(402, 167);
+            this.groupBoxMainFormTransaction.Size = new System.Drawing.Size(400, 167);
             this.groupBoxMainFormTransaction.TabIndex = 1;
             this.groupBoxMainFormTransaction.TabStop = false;
             this.groupBoxMainFormTransaction.Text = "Transaction";
-            // 
-            // bunifuTextBoxMainFormTransactionNote
-            // 
-            this.bunifuTextBoxMainFormTransactionNote.AcceptsReturn = false;
-            this.bunifuTextBoxMainFormTransactionNote.AcceptsTab = false;
-            this.bunifuTextBoxMainFormTransactionNote.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
-            this.bunifuTextBoxMainFormTransactionNote.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-            this.bunifuTextBoxMainFormTransactionNote.BackColor = System.Drawing.Color.White;
-            this.bunifuTextBoxMainFormTransactionNote.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuTextBoxMainFormTransactionNote.BackgroundImage")));
-            this.bunifuTextBoxMainFormTransactionNote.BorderColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(45)))), ((int)(((byte)(145)))));
-            this.bunifuTextBoxMainFormTransactionNote.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
-            this.bunifuTextBoxMainFormTransactionNote.BorderColorHover = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(38)))), ((int)(((byte)(157)))));
-            this.bunifuTextBoxMainFormTransactionNote.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(107)))), ((int)(((byte)(107)))));
-            this.bunifuTextBoxMainFormTransactionNote.BorderRadius = 1;
-            this.bunifuTextBoxMainFormTransactionNote.BorderThickness = 2;
-            this.bunifuTextBoxMainFormTransactionNote.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.bunifuTransition1.SetDecoration(this.bunifuTextBoxMainFormTransactionNote, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
-            this.bunifuTextBoxMainFormTransactionNote.DefaultFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.bunifuTextBoxMainFormTransactionNote.DefaultText = "";
-            this.bunifuTextBoxMainFormTransactionNote.FillColor = System.Drawing.Color.White;
-            this.bunifuTextBoxMainFormTransactionNote.HideSelection = true;
-            this.bunifuTextBoxMainFormTransactionNote.IconLeft = null;
-            this.bunifuTextBoxMainFormTransactionNote.IconLeftCursor = System.Windows.Forms.Cursors.Default;
-            this.bunifuTextBoxMainFormTransactionNote.IconPadding = 10;
-            this.bunifuTextBoxMainFormTransactionNote.IconRight = null;
-            this.bunifuTextBoxMainFormTransactionNote.IconRightCursor = System.Windows.Forms.Cursors.Default;
-            this.bunifuTextBoxMainFormTransactionNote.Location = new System.Drawing.Point(38, 80);
-            this.bunifuTextBoxMainFormTransactionNote.MaxLength = 32767;
-            this.bunifuTextBoxMainFormTransactionNote.MinimumSize = new System.Drawing.Size(100, 22);
-            this.bunifuTextBoxMainFormTransactionNote.Modified = false;
-            this.bunifuTextBoxMainFormTransactionNote.Name = "bunifuTextBoxMainFormTransactionNote";
-            this.bunifuTextBoxMainFormTransactionNote.PasswordChar = '\0';
-            this.bunifuTextBoxMainFormTransactionNote.ReadOnly = false;
-            this.bunifuTextBoxMainFormTransactionNote.SelectedText = "";
-            this.bunifuTextBoxMainFormTransactionNote.SelectionLength = 0;
-            this.bunifuTextBoxMainFormTransactionNote.SelectionStart = 0;
-            this.bunifuTextBoxMainFormTransactionNote.ShortcutsEnabled = true;
-            this.bunifuTextBoxMainFormTransactionNote.Size = new System.Drawing.Size(325, 22);
-            this.bunifuTextBoxMainFormTransactionNote.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Material;
-            this.bunifuTextBoxMainFormTransactionNote.TabIndex = 4;
-            this.bunifuTextBoxMainFormTransactionNote.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.bunifuTextBoxMainFormTransactionNote.TextMarginLeft = 5;
-            this.bunifuTextBoxMainFormTransactionNote.TextPlaceholder = "Notes";
-            this.bunifuTextBoxMainFormTransactionNote.UseSystemPasswordChar = false;
             // 
             // bunifuButtonMainFormAddTransaction
             // 
@@ -461,7 +467,7 @@
             // comboBoxMainFormTransactionType
             // 
             this.bunifuTransition1.SetDecoration(this.comboBoxMainFormTransactionType, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
-            this.comboBoxMainFormTransactionType.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.comboBoxMainFormTransactionType.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.comboBoxMainFormTransactionType.FormattingEnabled = true;
             this.comboBoxMainFormTransactionType.Items.AddRange(new object[] {
             "Clothes",
@@ -514,7 +520,7 @@
             this.groupBoxMainFormBalance.ForeColor = System.Drawing.Color.White;
             this.groupBoxMainFormBalance.Location = new System.Drawing.Point(0, 0);
             this.groupBoxMainFormBalance.Name = "groupBoxMainFormBalance";
-            this.groupBoxMainFormBalance.Size = new System.Drawing.Size(402, 87);
+            this.groupBoxMainFormBalance.Size = new System.Drawing.Size(400, 87);
             this.groupBoxMainFormBalance.TabIndex = 0;
             this.groupBoxMainFormBalance.TabStop = false;
             this.groupBoxMainFormBalance.Text = "Holder name";
@@ -523,7 +529,7 @@
             // 
             this.labelMainFormBalance.AutoSize = true;
             this.bunifuTransition1.SetDecoration(this.labelMainFormBalance, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
-            this.labelMainFormBalance.Location = new System.Drawing.Point(203, 45);
+            this.labelMainFormBalance.Location = new System.Drawing.Point(222, 42);
             this.labelMainFormBalance.Name = "labelMainFormBalance";
             this.labelMainFormBalance.Size = new System.Drawing.Size(51, 16);
             this.labelMainFormBalance.TabIndex = 1;
@@ -533,11 +539,11 @@
             // 
             this.labelMainFormBalanceText.AutoSize = true;
             this.bunifuTransition1.SetDecoration(this.labelMainFormBalanceText, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
-            this.labelMainFormBalanceText.Location = new System.Drawing.Point(112, 44);
+            this.labelMainFormBalanceText.Location = new System.Drawing.Point(111, 42);
             this.labelMainFormBalanceText.Name = "labelMainFormBalanceText";
-            this.labelMainFormBalanceText.Size = new System.Drawing.Size(69, 16);
+            this.labelMainFormBalanceText.Size = new System.Drawing.Size(105, 16);
             this.labelMainFormBalanceText.TabIndex = 0;
-            this.labelMainFormBalanceText.Text = "Balance:";
+            this.labelMainFormBalanceText.Text = "Your Balance:";
             // 
             // chartMainFormExpenses
             // 
@@ -549,7 +555,7 @@
             legend1.Enabled = false;
             legend1.Name = "Legend1";
             this.chartMainFormExpenses.Legends.Add(legend1);
-            this.chartMainFormExpenses.Location = new System.Drawing.Point(3, -7);
+            this.chartMainFormExpenses.Location = new System.Drawing.Point(5, -7);
             this.chartMainFormExpenses.Name = "chartMainFormExpenses";
             series1.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
             series1.ChartArea = "ChartArea1";
@@ -570,6 +576,7 @@
             // chartMainFormBalance
             // 
             this.chartMainFormBalance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
+            chartArea2.AxisX.LabelStyle.Enabled = false;
             chartArea2.AxisX.LabelStyle.ForeColor = System.Drawing.Color.White;
             chartArea2.AxisX.LineColor = System.Drawing.Color.White;
             chartArea2.AxisX.MajorGrid.LineColor = System.Drawing.Color.White;
@@ -599,7 +606,7 @@
             series2.Legend = "Legend1";
             series2.Name = "Balance";
             this.chartMainFormBalance.Series.Add(series2);
-            this.chartMainFormBalance.Size = new System.Drawing.Size(630, 458);
+            this.chartMainFormBalance.Size = new System.Drawing.Size(632, 458);
             this.chartMainFormBalance.TabIndex = 2;
             this.chartMainFormBalance.Text = "chart1";
             // 
@@ -613,7 +620,7 @@
             this.groupBoxMainFormChart.ForeColor = System.Drawing.Color.White;
             this.groupBoxMainFormChart.Location = new System.Drawing.Point(0, 457);
             this.groupBoxMainFormChart.Name = "groupBoxMainFormChart";
-            this.groupBoxMainFormChart.Size = new System.Drawing.Size(630, 107);
+            this.groupBoxMainFormChart.Size = new System.Drawing.Size(632, 107);
             this.groupBoxMainFormChart.TabIndex = 1;
             this.groupBoxMainFormChart.TabStop = false;
             this.groupBoxMainFormChart.Text = "Graphic";
@@ -649,6 +656,8 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
+            this.tabPage2.Controls.Add(this.splitContainer2);
             this.bunifuTransition1.SetDecoration(this.tabPage2, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
             this.tabPage2.Location = new System.Drawing.Point(4, 4);
             this.tabPage2.Name = "tabPage2";
@@ -656,12 +665,370 @@
             this.tabPage2.Size = new System.Drawing.Size(1042, 570);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // splitContainer2
+            // 
+            this.bunifuTransition1.SetDecoration(this.splitContainer2, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer2.IsSplitterFixed = true;
+            this.splitContainer2.Location = new System.Drawing.Point(3, 3);
+            this.splitContainer2.Name = "splitContainer2";
+            // 
+            // splitContainer2.Panel1
+            // 
+            this.splitContainer2.Panel1.Controls.Add(this.groupBoxDepositExtensions);
+            this.splitContainer2.Panel1.Controls.Add(this.groupBoxDepositPercents);
+            this.splitContainer2.Panel1.Controls.Add(this.groupBoxDepositSum);
+            this.splitContainer2.Panel1.Controls.Add(this.groupBoxDepositRate);
+            this.bunifuTransition1.SetDecoration(this.splitContainer2.Panel1, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            // 
+            // splitContainer2.Panel2
+            // 
+            this.splitContainer2.Panel2.Controls.Add(this.chartDeposit);
+            this.bunifuTransition1.SetDecoration(this.splitContainer2.Panel2, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.splitContainer2.Size = new System.Drawing.Size(1036, 564);
+            this.splitContainer2.SplitterDistance = 550;
+            this.splitContainer2.TabIndex = 0;
+            // 
+            // groupBoxDepositExtensions
+            // 
+            this.groupBoxDepositExtensions.Controls.Add(this.numericUpDownDepositExtension);
+            this.groupBoxDepositExtensions.Controls.Add(this.trackBarDepositExtension);
+            this.bunifuTransition1.SetDecoration(this.groupBoxDepositExtensions, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.groupBoxDepositExtensions.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBoxDepositExtensions.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.groupBoxDepositExtensions.ForeColor = System.Drawing.Color.White;
+            this.groupBoxDepositExtensions.Location = new System.Drawing.Point(0, 428);
+            this.groupBoxDepositExtensions.Name = "groupBoxDepositExtensions";
+            this.groupBoxDepositExtensions.Size = new System.Drawing.Size(550, 133);
+            this.groupBoxDepositExtensions.TabIndex = 3;
+            this.groupBoxDepositExtensions.TabStop = false;
+            this.groupBoxDepositExtensions.Text = "Extension Count";
+            // 
+            // numericUpDownDepositExtension
+            // 
+            this.numericUpDownDepositExtension.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(59)))), ((int)(((byte)(85)))));
+            this.bunifuTransition1.SetDecoration(this.numericUpDownDepositExtension, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.numericUpDownDepositExtension.ForeColor = System.Drawing.Color.White;
+            this.numericUpDownDepositExtension.Location = new System.Drawing.Point(408, 58);
+            this.numericUpDownDepositExtension.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.numericUpDownDepositExtension.Name = "numericUpDownDepositExtension";
+            this.numericUpDownDepositExtension.Size = new System.Drawing.Size(120, 22);
+            this.numericUpDownDepositExtension.TabIndex = 6;
+            this.numericUpDownDepositExtension.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numericUpDownDepositExtension.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDownDepositExtension.ValueChanged += new System.EventHandler(this.numericUpDownDepositExtension_ValueChanged);
+            // 
+            // trackBarDepositExtension
+            // 
+            this.bunifuTransition1.SetDecoration(this.trackBarDepositExtension, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.trackBarDepositExtension.Location = new System.Drawing.Point(29, 49);
+            this.trackBarDepositExtension.Name = "trackBarDepositExtension";
+            this.trackBarDepositExtension.Size = new System.Drawing.Size(342, 45);
+            this.trackBarDepositExtension.TabIndex = 1;
+            this.trackBarDepositExtension.TickStyle = System.Windows.Forms.TickStyle.Both;
+            this.trackBarDepositExtension.Value = 1;
+            this.trackBarDepositExtension.Scroll += new System.EventHandler(this.trackBarDepositExtension_Scroll);
+            // 
+            // groupBoxDepositPercents
+            // 
+            this.groupBoxDepositPercents.Controls.Add(this.label2);
+            this.groupBoxDepositPercents.Controls.Add(this.label1);
+            this.groupBoxDepositPercents.Controls.Add(this.bunifuToggleSwitchDepositOnDeposit);
+            this.groupBoxDepositPercents.Controls.Add(this.labelDepositPercents);
+            this.groupBoxDepositPercents.Controls.Add(this.numericUpDownDepositPercents);
+            this.bunifuTransition1.SetDecoration(this.groupBoxDepositPercents, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.groupBoxDepositPercents.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBoxDepositPercents.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.groupBoxDepositPercents.ForeColor = System.Drawing.Color.White;
+            this.groupBoxDepositPercents.Location = new System.Drawing.Point(0, 297);
+            this.groupBoxDepositPercents.Name = "groupBoxDepositPercents";
+            this.groupBoxDepositPercents.Size = new System.Drawing.Size(550, 131);
+            this.groupBoxDepositPercents.TabIndex = 2;
+            this.groupBoxDepositPercents.TabStop = false;
+            this.groupBoxDepositPercents.Text = "Percents";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.bunifuTransition1.SetDecoration(this.label2, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.label2.Location = new System.Drawing.Point(268, 67);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(64, 16);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "On Card";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.bunifuTransition1.SetDecoration(this.label1, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.label1.Location = new System.Drawing.Point(412, 66);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(85, 16);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "On Deposit";
+            // 
+            // bunifuToggleSwitchDepositOnDeposit
+            // 
+            this.bunifuToggleSwitchDepositOnDeposit.Animation = 5;
+            this.bunifuToggleSwitchDepositOnDeposit.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuToggleSwitchDepositOnDeposit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuToggleSwitchDepositOnDeposit.BackgroundImage")));
+            this.bunifuToggleSwitchDepositOnDeposit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bunifuTransition1.SetDecoration(this.bunifuToggleSwitchDepositOnDeposit, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.bunifuToggleSwitchDepositOnDeposit.Location = new System.Drawing.Point(358, 64);
+            this.bunifuToggleSwitchDepositOnDeposit.Margin = new System.Windows.Forms.Padding(4);
+            this.bunifuToggleSwitchDepositOnDeposit.Name = "bunifuToggleSwitchDepositOnDeposit";
+            this.bunifuToggleSwitchDepositOnDeposit.Size = new System.Drawing.Size(34, 20);
+            this.bunifuToggleSwitchDepositOnDeposit.TabIndex = 4;
+            toggleState1.BackColor = System.Drawing.Color.Empty;
+            toggleState1.BackColorInner = System.Drawing.Color.Empty;
+            toggleState1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(0)))), ((int)(((byte)(140)))));
+            toggleState1.BorderColorInner = System.Drawing.Color.Empty;
+            toggleState1.BorderRadius = 1;
+            toggleState1.BorderRadiusInner = 1;
+            toggleState1.BorderThickness = 1;
+            toggleState1.BorderThicknessInner = 1;
+            this.bunifuToggleSwitchDepositOnDeposit.ToggleStateDisabled = toggleState1;
+            toggleState2.BackColor = System.Drawing.Color.Empty;
+            toggleState2.BackColorInner = System.Drawing.Color.Empty;
+            toggleState2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(0)))), ((int)(((byte)(140)))));
+            toggleState2.BorderColorInner = System.Drawing.Color.Empty;
+            toggleState2.BorderRadius = 1;
+            toggleState2.BorderRadiusInner = 1;
+            toggleState2.BorderThickness = 1;
+            toggleState2.BorderThicknessInner = 1;
+            this.bunifuToggleSwitchDepositOnDeposit.ToggleStateOff = toggleState2;
+            toggleState3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(45)))), ((int)(((byte)(145)))));
+            toggleState3.BackColorInner = System.Drawing.Color.White;
+            toggleState3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(45)))), ((int)(((byte)(145)))));
+            toggleState3.BorderColorInner = System.Drawing.Color.White;
+            toggleState3.BorderRadius = 17;
+            toggleState3.BorderRadiusInner = 15;
+            toggleState3.BorderThickness = 1;
+            toggleState3.BorderThicknessInner = 1;
+            this.bunifuToggleSwitchDepositOnDeposit.ToggleStateOn = toggleState3;
+            this.bunifuToggleSwitchDepositOnDeposit.Value = true;
+            this.bunifuToggleSwitchDepositOnDeposit.OnValuechange += new System.EventHandler(this.bunifuToggleSwitchDepositOnDeposit_OnValuechange);
+            // 
+            // labelDepositPercents
+            // 
+            this.labelDepositPercents.AutoSize = true;
+            this.bunifuTransition1.SetDecoration(this.labelDepositPercents, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.labelDepositPercents.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelDepositPercents.Location = new System.Drawing.Point(36, 64);
+            this.labelDepositPercents.Name = "labelDepositPercents";
+            this.labelDepositPercents.Size = new System.Drawing.Size(26, 24);
+            this.labelDepositPercents.TabIndex = 3;
+            this.labelDepositPercents.Text = "%";
+            // 
+            // numericUpDownDepositPercents
+            // 
+            this.numericUpDownDepositPercents.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(59)))), ((int)(((byte)(85)))));
+            this.bunifuTransition1.SetDecoration(this.numericUpDownDepositPercents, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.numericUpDownDepositPercents.ForeColor = System.Drawing.Color.White;
+            this.numericUpDownDepositPercents.Location = new System.Drawing.Point(68, 64);
+            this.numericUpDownDepositPercents.Name = "numericUpDownDepositPercents";
+            this.numericUpDownDepositPercents.Size = new System.Drawing.Size(120, 22);
+            this.numericUpDownDepositPercents.TabIndex = 4;
+            this.numericUpDownDepositPercents.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numericUpDownDepositPercents.Value = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            this.numericUpDownDepositPercents.ValueChanged += new System.EventHandler(this.numericUpDownDepositPercents_ValueChanged);
+            // 
+            // groupBoxDepositSum
+            // 
+            this.groupBoxDepositSum.Controls.Add(this.numericUpDownDepositSum);
+            this.groupBoxDepositSum.Controls.Add(this.trackBarDepositSum);
+            this.bunifuTransition1.SetDecoration(this.groupBoxDepositSum, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.groupBoxDepositSum.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBoxDepositSum.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.groupBoxDepositSum.ForeColor = System.Drawing.Color.White;
+            this.groupBoxDepositSum.Location = new System.Drawing.Point(0, 153);
+            this.groupBoxDepositSum.Name = "groupBoxDepositSum";
+            this.groupBoxDepositSum.Size = new System.Drawing.Size(550, 144);
+            this.groupBoxDepositSum.TabIndex = 1;
+            this.groupBoxDepositSum.TabStop = false;
+            this.groupBoxDepositSum.Text = "Sum";
+            // 
+            // numericUpDownDepositSum
+            // 
+            this.numericUpDownDepositSum.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(59)))), ((int)(((byte)(85)))));
+            this.bunifuTransition1.SetDecoration(this.numericUpDownDepositSum, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.numericUpDownDepositSum.ForeColor = System.Drawing.Color.White;
+            this.numericUpDownDepositSum.Location = new System.Drawing.Point(396, 64);
+            this.numericUpDownDepositSum.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
+            this.numericUpDownDepositSum.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDownDepositSum.Name = "numericUpDownDepositSum";
+            this.numericUpDownDepositSum.Size = new System.Drawing.Size(120, 22);
+            this.numericUpDownDepositSum.TabIndex = 5;
+            this.numericUpDownDepositSum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numericUpDownDepositSum.Value = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.numericUpDownDepositSum.ValueChanged += new System.EventHandler(this.numericUpDownDepositSum_ValueChanged);
+            // 
+            // trackBarDepositSum
+            // 
+            this.bunifuTransition1.SetDecoration(this.trackBarDepositSum, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.trackBarDepositSum.Location = new System.Drawing.Point(17, 55);
+            this.trackBarDepositSum.Maximum = 1000000;
+            this.trackBarDepositSum.Minimum = 1;
+            this.trackBarDepositSum.Name = "trackBarDepositSum";
+            this.trackBarDepositSum.Size = new System.Drawing.Size(342, 45);
+            this.trackBarDepositSum.TabIndex = 0;
+            this.trackBarDepositSum.TickFrequency = 10000;
+            this.trackBarDepositSum.TickStyle = System.Windows.Forms.TickStyle.Both;
+            this.trackBarDepositSum.Value = 100000;
+            this.trackBarDepositSum.Scroll += new System.EventHandler(this.trackBarDepositSum_Scroll);
+            // 
+            // groupBoxDepositRate
+            // 
+            this.groupBoxDepositRate.Controls.Add(this.labelDepositMonths);
+            this.groupBoxDepositRate.Controls.Add(this.numericUpDownDepositMonths);
+            this.groupBoxDepositRate.Controls.Add(this.trackBarDepositMonths);
+            this.bunifuTransition1.SetDecoration(this.groupBoxDepositRate, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.groupBoxDepositRate.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBoxDepositRate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.groupBoxDepositRate.ForeColor = System.Drawing.Color.White;
+            this.groupBoxDepositRate.Location = new System.Drawing.Point(0, 0);
+            this.groupBoxDepositRate.Name = "groupBoxDepositRate";
+            this.groupBoxDepositRate.Size = new System.Drawing.Size(550, 153);
+            this.groupBoxDepositRate.TabIndex = 0;
+            this.groupBoxDepositRate.TabStop = false;
+            this.groupBoxDepositRate.Text = "Rate/Term";
+            // 
+            // labelDepositMonths
+            // 
+            this.labelDepositMonths.AutoSize = true;
+            this.bunifuTransition1.SetDecoration(this.labelDepositMonths, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.labelDepositMonths.Location = new System.Drawing.Point(26, 43);
+            this.labelDepositMonths.Name = "labelDepositMonths";
+            this.labelDepositMonths.Size = new System.Drawing.Size(57, 16);
+            this.labelDepositMonths.TabIndex = 2;
+            this.labelDepositMonths.Text = "Months";
+            // 
+            // numericUpDownDepositMonths
+            // 
+            this.numericUpDownDepositMonths.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(59)))), ((int)(((byte)(85)))));
+            this.bunifuTransition1.SetDecoration(this.numericUpDownDepositMonths, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.numericUpDownDepositMonths.ForeColor = System.Drawing.Color.White;
+            this.numericUpDownDepositMonths.Location = new System.Drawing.Point(396, 75);
+            this.numericUpDownDepositMonths.Maximum = new decimal(new int[] {
+            36,
+            0,
+            0,
+            0});
+            this.numericUpDownDepositMonths.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDownDepositMonths.Name = "numericUpDownDepositMonths";
+            this.numericUpDownDepositMonths.Size = new System.Drawing.Size(120, 22);
+            this.numericUpDownDepositMonths.TabIndex = 1;
+            this.numericUpDownDepositMonths.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numericUpDownDepositMonths.Value = new decimal(new int[] {
+            6,
+            0,
+            0,
+            0});
+            this.numericUpDownDepositMonths.ValueChanged += new System.EventHandler(this.numericUpDownDepositMonths_ValueChanged);
+            // 
+            // trackBarDepositMonths
+            // 
+            this.bunifuTransition1.SetDecoration(this.trackBarDepositMonths, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.trackBarDepositMonths.Location = new System.Drawing.Point(17, 64);
+            this.trackBarDepositMonths.Maximum = 36;
+            this.trackBarDepositMonths.Minimum = 1;
+            this.trackBarDepositMonths.Name = "trackBarDepositMonths";
+            this.trackBarDepositMonths.Size = new System.Drawing.Size(342, 45);
+            this.trackBarDepositMonths.TabIndex = 0;
+            this.trackBarDepositMonths.TickStyle = System.Windows.Forms.TickStyle.Both;
+            this.trackBarDepositMonths.Value = 6;
+            this.trackBarDepositMonths.Scroll += new System.EventHandler(this.trackBarDepositMonths_Scroll);
+            // 
+            // chartDeposit
+            // 
+            this.chartDeposit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
+            chartArea3.AxisX.LabelStyle.ForeColor = System.Drawing.Color.White;
+            chartArea3.AxisX.LineColor = System.Drawing.Color.White;
+            chartArea3.AxisX.MajorGrid.LineColor = System.Drawing.Color.DimGray;
+            chartArea3.AxisY.LabelStyle.ForeColor = System.Drawing.Color.White;
+            chartArea3.AxisY.LineColor = System.Drawing.Color.White;
+            chartArea3.AxisY.MajorGrid.LineColor = System.Drawing.Color.White;
+            chartArea3.AxisY.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            chartArea3.AxisY.TitleForeColor = System.Drawing.Color.White;
+            chartArea3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
+            chartArea3.Name = "ChartArea1";
+            this.chartDeposit.ChartAreas.Add(chartArea3);
+            this.bunifuTransition1.SetDecoration(this.chartDeposit, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.chartDeposit.Dock = System.Windows.Forms.DockStyle.Fill;
+            legend3.Enabled = false;
+            legend3.Name = "Legend1";
+            this.chartDeposit.Legends.Add(legend3);
+            this.chartDeposit.Location = new System.Drawing.Point(0, 0);
+            this.chartDeposit.Name = "chartDeposit";
+            series3.ChartArea = "ChartArea1";
+            series3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            series3.IsValueShownAsLabel = true;
+            series3.LabelForeColor = System.Drawing.Color.White;
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            this.chartDeposit.Series.Add(series3);
+            this.chartDeposit.Size = new System.Drawing.Size(482, 564);
+            this.chartDeposit.TabIndex = 0;
+            this.chartDeposit.Text = "chart1";
             // 
             // bunifuElipse1
             // 
             this.bunifuElipse1.ElipseRadius = 5;
             this.bunifuElipse1.TargetControl = this;
+            // 
+            // bunifuTextBoxMainFormTransactionNote
+            // 
+            this.bunifuTextBoxMainFormTransactionNote.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.bunifuTextBoxMainFormTransactionNote.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.bunifuTextBoxMainFormTransactionNote.BackColor = System.Drawing.Color.White;
+            this.bunifuTextBoxMainFormTransactionNote.characterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.bunifuTextBoxMainFormTransactionNote.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.bunifuTransition1.SetDecoration(this.bunifuTextBoxMainFormTransactionNote, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.bunifuTextBoxMainFormTransactionNote.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.bunifuTextBoxMainFormTransactionNote.ForeColor = System.Drawing.Color.Black;
+            this.bunifuTextBoxMainFormTransactionNote.HintForeColor = System.Drawing.Color.Empty;
+            this.bunifuTextBoxMainFormTransactionNote.HintText = "Notes";
+            this.bunifuTextBoxMainFormTransactionNote.isPassword = false;
+            this.bunifuTextBoxMainFormTransactionNote.LineFocusedColor = System.Drawing.Color.DarkOrchid;
+            this.bunifuTextBoxMainFormTransactionNote.LineIdleColor = System.Drawing.Color.Gray;
+            this.bunifuTextBoxMainFormTransactionNote.LineMouseHoverColor = System.Drawing.Color.DarkOrchid;
+            this.bunifuTextBoxMainFormTransactionNote.LineThickness = 3;
+            this.bunifuTextBoxMainFormTransactionNote.Location = new System.Drawing.Point(38, 76);
+            this.bunifuTextBoxMainFormTransactionNote.Margin = new System.Windows.Forms.Padding(4);
+            this.bunifuTextBoxMainFormTransactionNote.MaxLength = 32767;
+            this.bunifuTextBoxMainFormTransactionNote.Name = "bunifuTextBoxMainFormTransactionNote";
+            this.bunifuTextBoxMainFormTransactionNote.Size = new System.Drawing.Size(325, 31);
+            this.bunifuTextBoxMainFormTransactionNote.TabIndex = 3;
+            this.bunifuTextBoxMainFormTransactionNote.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
             // MainForm
             // 
@@ -699,6 +1066,27 @@
             ((System.ComponentModel.ISupportInitialize)(this.chartMainFormExpenses)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartMainFormBalance)).EndInit();
             this.groupBoxMainFormChart.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
+            this.splitContainer2.Panel1.ResumeLayout(false);
+            this.splitContainer2.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
+            this.splitContainer2.ResumeLayout(false);
+            this.groupBoxDepositExtensions.ResumeLayout(false);
+            this.groupBoxDepositExtensions.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDepositExtension)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarDepositExtension)).EndInit();
+            this.groupBoxDepositPercents.ResumeLayout(false);
+            this.groupBoxDepositPercents.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDepositPercents)).EndInit();
+            this.groupBoxDepositSum.ResumeLayout(false);
+            this.groupBoxDepositSum.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDepositSum)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarDepositSum)).EndInit();
+            this.groupBoxDepositRate.ResumeLayout(false);
+            this.groupBoxDepositRate.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDepositMonths)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarDepositMonths)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartDeposit)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -719,7 +1107,6 @@
         private System.Windows.Forms.GroupBox groupBoxMainFormBalance;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Panel panel2;
-        private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox bunifuTextBoxMainFormTransactionNote;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton bunifuButtonMainFormAddTransaction;
         private System.Windows.Forms.ComboBox comboBoxMainFormTransactionType;
         private System.Windows.Forms.NumericUpDown numericUpDownMainFormTransactionSum;
@@ -730,9 +1117,28 @@
         private System.Windows.Forms.ComboBox comboBoxMainFormChartType;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartMainFormBalance;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartMainFormExpenses;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button buttonMainFormDepositTab;
+        private System.Windows.Forms.Button buttonMainFormBalanceTab;
+        private System.Windows.Forms.Button buttonMainFormLogout;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
+        private System.Windows.Forms.SplitContainer splitContainer2;
+        private System.Windows.Forms.GroupBox groupBoxDepositExtensions;
+        private System.Windows.Forms.GroupBox groupBoxDepositPercents;
+        private System.Windows.Forms.TrackBar trackBarDepositExtension;
+        private System.Windows.Forms.GroupBox groupBoxDepositSum;
+        private System.Windows.Forms.NumericUpDown numericUpDownDepositSum;
+        private System.Windows.Forms.TrackBar trackBarDepositSum;
+        private System.Windows.Forms.GroupBox groupBoxDepositRate;
+        private System.Windows.Forms.NumericUpDown numericUpDownDepositPercents;
+        private System.Windows.Forms.Label labelDepositPercents;
+        private System.Windows.Forms.Label labelDepositMonths;
+        private System.Windows.Forms.NumericUpDown numericUpDownDepositMonths;
+        private System.Windows.Forms.TrackBar trackBarDepositMonths;
+        private System.Windows.Forms.NumericUpDown numericUpDownDepositExtension;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartDeposit;
+        private Bunifu.ToggleSwitch.BunifuToggleSwitch bunifuToggleSwitchDepositOnDeposit;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private Bunifu.Framework.UI.BunifuMaterialTextbox bunifuTextBoxMainFormTransactionNote;
     }
 }

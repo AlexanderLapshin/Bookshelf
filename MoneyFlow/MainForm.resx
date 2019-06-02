@@ -159,19 +159,24 @@
 </value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="bunifuTextBoxMainFormTransactionNote.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAUUAAAAWCAYAAABXGY6wAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAA7SURBVHhe7cMxDQAwDAOwQe2dkCj0Apkt+QEAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAA8Ikk03ZV7R5ZBDoBG9YZVAAAAABJRU5ErkJggg==
-</value>
-  </data>
   <data name="bunifuButtonMainFormAddTransaction.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAJAAAAAeCAYAAADD/JcQAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAB7SURBVHhe7dIxDYRAAADB0wSG3gaYwQXIg9CTwGfbKaba
         dse0Hr95PU741/3OeArwlYFIDERiIBIDkRiIxEAkBiIxEImBSAxEYiASA5EYiMRAJAYiMRCJgUgMRGIg
         EgORGIjEQCQGIjEQiYFIDERiIJIxL/v2FODVsm8XoUVG9XaffmoAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="bunifuToggleSwitchDepositOnDeposit.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACIAAAAUCAYAAADoZO9yAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFuSURBVEhLzZY9TwMxDIYzMjKywVwcys9gQoxsZbikiImf
+        wM4Q50BdETMSGysrI2M3JFaoRCs+BUN5fY3Ex1kMbS/C0iNVF8d56yR2jGZ7reMlt8rbBfFh18Zrb+N4
+        FiSGo7JX2LDTbYeVtMzfBmfnLA/ASAs6PTx2FB898YOz8SAtV7dOOyw64itPcagHmh9Y5wl/tK9mJ4lQ
+        JzYFMnPbWT5ZSBIm25EjEzWIX7u2LCsR1cHEmVAdc0A8KFph3eBm7ELIs+qUCbmdBj9OsVeqQy7kfEII
+        32iDWaH4IhnRBzPzf4Sg2t1rA3nhD8nIRe5C9hupshAS9tGQ3jSHPEgPKntGigk+5K+qXww9ha2qukqZ
+        lXKrODUOtuWyEiEmjUcakObYJChkI2kxScbEqi0ivnMU3rVJ80ZEOHu0mZb/afIm8bY8xy2Sx4saYDZw
+        MPHgkpJey4Rmfi1uYCJ6EPfrwaYFrYTKM3mCpmW+mTGfzZolXYrSxMYAAAAASUVORK5CYII=
 </value>
   </data>
   <metadata name="bunifuElipse1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
